@@ -1,3 +1,4 @@
+import { login } from '../api/services/auth/auth-service.js';
 import { FormGeneric } from './form/form-component.js';
 import { Button } from './ui/button-component.js';
 import { Input } from './ui/input-component.js';
@@ -7,8 +8,6 @@ import { createErrorDiv } from './utils/form-utils.js';
 
 const EMAIL_REQUIRED_MSG = 'Email é obrigatório';
 const PASSWORD_REQUIRED_MSG = 'Senha é obrigatória';
-const LOGIN_SUCCESS_MSG = 'login realizado com sucesso';
-const LOADING_TIME_MS = 100;
 
 function createLogo() {
     const logo = document.createElement('img');
@@ -41,7 +40,7 @@ function validateField(inputEl, errorDiv, errorMsg) {
 }
 
 function handleLoginSubmit({ emailInput, passwordInput, emailError, passwordError }) {
-    return (e) => {
+    return async (e) => {
         e.preventDefault();
         const emailEl = emailInput.querySelector('input');
         const passwordEl = passwordInput.querySelector('input');
@@ -56,11 +55,18 @@ function handleLoginSubmit({ emailInput, passwordInput, emailError, passwordErro
         submitBtn.innerHTML = `<span class="spinner"></span>Entrando...`;
         submitBtn.disabled = true;
 
-        setTimeout(() => {
+        try {
+            const data = await login(emailEl.value, passwordEl.value);
+            localStorage.setItem('access_token', data.access_token);
+            localStorage.setItem('refresh_token', data.refresh_token);
+            showToast('Login realizado com sucesso!', 'success');
+            window.location.hash = '/home';
+        } catch (error) {
+            showToast(error.message || 'Erro ao fazer login', 'error');
+        } finally {
             submitBtn.innerHTML = originalText;
             submitBtn.disabled = false;
-            showToast(LOGIN_SUCCESS_MSG, 'success');
-        }, LOADING_TIME_MS);
+        }
     };
 }
 
