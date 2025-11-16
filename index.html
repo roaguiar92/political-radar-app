@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- ESTILIZAÇÕES -->
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="root.css" />
+    <link rel="stylesheet" href="dashboard.css" />
+    <title>Monitoramento de Gastos</title>
+  </head>
+  <body>
+    <div id="app">
+    <!-- MENU APP -->
+      <nav class="menu">
+        <img src="icons/Union.png" alt="menu" class="menu-img" id="btnMenu"/>
+        <img src="icons/Título.png" alt="titulo" class="menu-titulo" />
+      </nav>
+      <ul class="menu-list" id="menuList">
+        <li><a href="#">INÍCIO</a></li>
+        <li><a href="#">CONFIGURAÇÕES</a></li>
+      </ul>
+      <!-- FIM MENU APP -->
+
+      <main class="conteudo-dashboard">
+        <section class="secao-titulo">
+          <h1 class="titulo-pagina">Monitoramento de Gastos</h1>
+          <h2 class="nome-representante">Nome do Parlamentar</h2>
+        </section>
+        <section class="secao-valor-total">
+          <p class="valor-total">R$ 1.231.982,00</p>
+          <p class="descricao-total">Total de gastos em 2025</p>
+        </section>
+        <section class="secao-grafico">
+          <img src="imgs/Gráfico pizza.png" alt="" class="grafico-pizza" />
+        </section>
+        <section class="legenda-gastos">
+          <ul>
+            <li><span class="cor cor-gabinete"></span> Verbas de Gabinete</li>
+            <li><span class="cor cor-viagens"></span> Viagens</li>
+            <li><span class="cor cor-combustivel"></span> Combustíveis</li>
+            <li><span class="cor cor-hospedagem"></span> Hospedagem</li>
+            <li><span class="cor cor-outras"></span> Outras</li>
+          </ul>
+        </section>
+        <section class="botao-historico">
+          <button>
+            <a href="historico.html" class="btn">Ver histórico mensal</a>
+          </button>
+        </section>
+      </main>
+    </div>
+    <script>
+      const btnMenu = document.getElementById("btnMenu");
+      const menuList = document.getElementById("menuList");
+
+      let menuOpen = false;
+
+      btnMenu.addEventListener("click", () => {
+        menuOpen = !menuOpen;
+
+        //Mostrar/ocultar menu
+        menuList.classList.toggle("active");
+
+        //Trocar ícone
+        if (menuOpen) {
+          btnMenu.src = "icons/x 1.png"; //Ícone X
+        } else {
+          btnMenu.src = "icons/Union.png"; //Ícone original
+        }
+      });
+    </script>
+  </body>
+</html>
