@@ -1,17 +1,17 @@
-import { FormGeneric } from './form/form-component.js';
-import { Input } from './ui/input-component.js';
-import { injectSpinnerCss } from './ui/spinner-component.js';
-import { createErrorDiv } from './utils/form-utils.js';
-import { isStrongPassword } from './utils/validators/input-password-type.js';
-import { showToast } from './ui/toast-component.js';
+import { FormGeneric } from '../form/form-component.js';
+import { Input } from '../ui/input-component.js';
+import { injectSpinnerCss } from '../ui/spinner-component.js';
+import { createErrorDiv } from '../utils/form-utils.js';
+import { isStrongPassword } from '../utils/validators/input-password-type.js';
+import { showToast } from '../ui/toast-component.js';
+import { register } from '../../api/services/auth/auth-service.js';
+import { RegisterSuccess } from './confirm-register.js';
 
 const LOGIN_REQUIRED_MSG = 'Login é obrigatório';
 const PASSWORD_REQUIRED_MSG = 'Senha é obrigatória';
 const CONFIRM_PASSWORD_REQUIRED_MSG = 'Confirme sua senha';
 const PASSWORDS_NOT_MATCH_MSG = 'As senhas não coincidem';
 const PASSWORD_WEAK_MSG = 'A senha deve ter pelo menos 8 caracteres, uma maiúscula, um número e um caractere especial (!@#$%).';
-const SUCCESS_MSG = 'Cadastro realizado com sucesso!';
-const LOADING_TIME_MS = 4000;
 
 function createLogo() {
     const logo = document.createElement('img');
@@ -101,7 +101,7 @@ function handleSubmit({
     passwordWeakError,
     passwordsNotMatchError
 }) {
-    return (e) => {
+    return async (e) => {
         e.preventDefault();
 
         const loginEl = loginInput.querySelector('input');
@@ -119,12 +119,18 @@ function handleSubmit({
         submitBtn.innerHTML = `<span class="spinner"></span>Cadastrando...`;
         submitBtn.disabled = true;
 
-        setTimeout(() => {
+        try {
+            await register(loginEl.value, passwordEl.value);
+            const contentDiv = document.getElementById('content');
+            contentDiv.innerHTML = '';
+            contentDiv.appendChild(RegisterSuccess(loginEl.value));
+        } catch (error) {
+            showToast(error.message || 'Erro ao cadastrar', 'error');
+        } finally {
             submitBtn.innerHTML = originalText;
             submitBtn.disabled = false;
-            showToast(SUCCESS_MSG, 'success');
-            window.location.hash = '/';
-        }, LOADING_TIME_MS);
+        }
+
     };
 }
 

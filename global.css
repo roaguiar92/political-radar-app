@@ -255,3 +255,14 @@ body.auth-bg {
     border: 1.5px solid #e53935 !important;
     box-shadow: 0 0 0 2px #e5393522;
 }
+
+.register-success-section {
+    padding: 2rem;
+    text-align: center;
+}
+.register-success-section h2 {
+    margin-bottom: 1rem;
+}
+.register-success-section button {
+    margin-top: 2rem;
+}
