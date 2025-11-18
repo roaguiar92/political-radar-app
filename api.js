@@ -1,54 +1,83 @@
-async function carregarGastos() {
-  const seletorAno = document.querySelector(".filtros-historico select:nth-child(1)");
-  const anoSelecionado = seletorAno.value;
+const API_URL = "https://radar-politico-api.onrender.com/api/v1/gastos/deputado";
 
-  // URL da API
-  const url = `https://radar-politico-api.onrender.com/api/v1/gastos/top?ano=${anoSelecionado}&limite=10`;
+const deputadoID = 1;
+
+const selectAno = document.querySelector(".filtros-historico label:nth-child(1) select");
+const selectMes = document.querySelector(".filtros-historico label:nth-child(2) select");
+const listaGastos = document.querySelector(".lista-gastos");
+
+// Mapa dos meses para número
+const mapaMeses = {
+  Janeiro: 1, Fevereiro: 2, Março: 3, Abril: 4, Maio: 5, Junho: 6,
+  Julho: 7, Agosto: 8, Setembro: 9, Outubro: 10, Novembro: 11, Dezembro: 12
+};
+
+selectAno.addEventListener("change", carregarGastos);
+selectMes.addEventListener("change", carregarGastos);
+
+async function carregarGastos() {
+  const ano = selectAno.value;
+  const mesNome = selectMes.value;
+  const mes = mapaMeses[mesNome];
+
+  if (!ano) return; // impede erro antes de escolher o ano
+
+  listaGastos.innerHTML = `<p style="text-align:center;">Carregando...</p>`;
 
   try {
-    const resposta = await fetch(url);
+    const response = await fetch(`${API_URL}/${deputadoID}?ano=${ano}`);
 
-    if (!resposta.ok) {
-      throw new Error("Erro ao buscar dados");
+    if (!response.ok) {
+      throw new Error("Erro na resposta da API");
     }
 
-    const dados = await resposta.json();
-    console.log(dados); // veja no console os dados
+    const data = await response.json();
 
-    preencherLista(dados.resultados);
-  } 
-  catch (erro) {
-    console.error("Erro:", erro);
+    // Debug
+    console.log("Resposta da API:", data);
+
+    const despesas = data.despesas || [];
+
+    // Filtra pelo MÊS
+    const despesasFiltradas = despesas.filter(d => d.mes === mes);
+
+    if (despesasFiltradas.length === 0) {
+      return renderizarSemDados(mesNome);
+    }
+
+    renderizarGastos(despesasFiltradas, mesNome);
+
+  } catch (error) {
+    console.error(error);
+    renderizarSemDados(mesNome);
   }
 }
 
-function preencherLista(lista) {
-  const container = document.querySelector(".lista-gastos");
-  
-  // Limpa o conteúdo atual
-  container.innerHTML = `<h3>Gastos do Ano</h3>`;
-
-  lista.forEach(item => {
-    const artigo = document.createElement("article");
-    artigo.classList.add("item-gasto");
-
-    artigo.innerHTML = `
-      <div class="descricao-gasto">
-        <p class="tipo-despesa">${item.deputado_nome}</p>
-        <p class="data-gasto">${item.sigla_partido} - ${item.sigla_uf}</p>
-        <p class="valor-gasto">R$ ${item.total_gastos.toLocaleString("pt-BR")}</p>
+function renderizarSemDados(mesNome) {
+  listaGastos.innerHTML = `
+    <section class="caixa-alerta">
+      <h1>Gastos de ${mesNome}</h1>
+      <div class="texto-alerta">
+        <p><strong>Atenção:</strong></p>
+        <p>Nenhuma despesa encontrada para o mês selecionado. Tente outro período.</p>
       </div>
-      <a href="detalhes.html" class="botao-detalhes">Ver detalhes</a>
-    `;
-
-    container.appendChild(artigo);
-  });
-
-  container.innerHTML += `<a href="#" class="botao-ver-mais">Ver mais</a>`;
+    </section>
+  `;
 }
 
-// Atualiza ao trocar o ano
-document.querySelector(".filtros-historico").addEventListener("change", carregarGastos);
+function renderizarGastos(gastos, mesNome) {
+  listaGastos.innerHTML = `<h3>Gastos de ${mesNome}</h3>`;
 
-// Carrega automaticamente ao abrir a página
-carregarGastos();
+  gastos.forEach((item) => {
+    listaGastos.innerHTML += `
+      <article class="item-gasto">
+        <div class="descricao-gasto">
+          <p class="tipo-despesa">${item.tipo_despesa}</p>
+          <p class="data-gasto">${item.mes}/${item.ano}</p>
+          <p class="valor-gasto">R$ ${item.valor_liquido.toLocaleString("pt-BR",{minimumFractionDigits: 2})}</p>
+          <p class="fornecedor">${item.fornecedor}</p>
+        </div>
+      </article>
+    `;
+  });
+}

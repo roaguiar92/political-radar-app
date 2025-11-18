@@ -137,3 +137,23 @@
   font-weight: 600;
 }
 
+/* QUANDO HISTÓRICO VAZIO */
+
+.caixa-alerta {
+  text-align: center;
+  margin-top: 32px;
+}
+
+.caixa-alerta h1{
+  font-weight: bold;
+  color: #243343;
+  font-size: 1.3em;
+  margin-bottom: 32px;
+}
+
+.texto-alerta {
+  padding: 16px;
+  border-radius: 8px;
+  background-color: #94000232;
+  line-height: 1.8;
+}
