@@ -99,6 +99,7 @@ body.auth-bg {
     width: 100%;
     box-sizing: border-box;
     margin-bottom: 15px;
+    margin-top: 15px;
 }
 
 .input-icon-container input {
@@ -155,6 +156,7 @@ body.auth-bg {
     align-items: center;
     justify-content: space-between;
     font-size: 16px;
+    margin-top: 15px;
 }
 
 .card_section_item {
@@ -279,8 +281,7 @@ body.auth-bg {
 
 @media (max-width: 600px) {
     .card-section_container {
-        padding: 1rem;
-        margin: 20vw 0 20vw 0;
+        padding: 0.8rem;
         display: flex;
     }
 }
