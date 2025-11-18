@@ -1,0 +1,241 @@
+:root {
+  --breakpoint-tablet: 1024px;
+  --breakpoint-mobile: 768px;
+  --breakpoint-small: 480px;
+  --header-mobile-height: 56px;
+}
+
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: #f7f7f7;
+}
+
+.dashboard-main-area {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  min-height: 0;
+}
+
+.dashboard-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  justify-content: flex-start;
+  background: #fff;
+  box-sizing: border-box;
+  border-radius: 0;
+  margin-left: 0;
+  padding: 2.5rem 2.5rem 2rem 2.5rem;
+}
+
+.dashboard-sidebar {
+  width: 15%;
+  min-height: 100vh;
+  background: #243343;
+  color: #fff;
+  padding: 20px 0 0 20px;
+  border-radius: 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  z-index: 1001;
+  transition: left 0.3s;
+}
+
+.dashboard-sidebar ul {
+  list-style: none;
+  margin: 0;
+  padding: 1rem 0;
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.dashboard-sidebar li {
+  margin-bottom: 0;
+}
+
+.dashboard-sidebar a {
+  color: #fff;
+  text-decoration: none;
+  background: none;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 10px 0 0 10px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.dashboard-sidebar a:hover,
+.dashboard-sidebar a.active {
+  color: #9F8C3D;
+}
+
+.sidebar-user-block {
+  margin-top: auto;
+  padding: 1.5rem 1rem 1.5rem 0;
+  border-top: 1px solid #2F6A6E40;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.dashboard-user-email {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #fff;
+  word-break: break-all;
+}
+
+.logout-btn {
+  color: #fff;
+  background: none;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  transition: color 0.2s;
+}
+.logout-btn:hover {
+  color: #9F8C3D;
+}
+
+.dashboard-user-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.dashboard-sidebar-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(36, 51, 67, 0.5);
+  z-index: 1000;
+}
+
+.dashboard-header-mobile {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .dashboard-header-mobile {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: var(--header-mobile-height);
+    background: #243343;
+    z-index: 1200;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    padding-left: 8px;
+  }
+  .sidebar-menu-toggle {
+    border: none !important;
+    background: none !important;
+    box-shadow: none !important;
+    outline: none;
+    color: #fff !important;
+    width: 48px;
+    height: 48px;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0 !important;
+    transition: none !important;
+  }
+  .sidebar-menu-toggle:focus,
+  .sidebar-menu-toggle:hover,
+  .sidebar-menu-toggle:active {
+    background: none !important;
+    box-shadow: none !important;
+    outline: none;
+  }
+}
+
+@media (max-width: 1024px) {
+  .dashboard-sidebar {
+    width: 22%;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .dashboard-content {
+    padding: 1.5rem 1rem 1rem 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-container,
+  .dashboard-main-area {
+    flex-direction: column;
+  }
+  .dashboard-sidebar {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 70%;
+    max-width: 320px;
+    height: 100vh;
+    min-height: 0;
+    box-shadow: 2px 0 8px rgba(0,0,0,0.08);
+    z-index: 1101;
+    padding-top: var(--header-mobile-height);
+    transition: left 0.3s;
+  }
+  .dashboard-sidebar.open {
+    left: 0;
+  }
+  .dashboard-sidebar ul {
+    gap: 0.5rem;
+    padding: 0.5rem 0;
+  }
+  .dashboard-sidebar a {
+    font-size: 0.95rem;
+    padding: 8px 8px 8px 8px;
+    gap: 0.4rem;
+  }
+  .sidebar-user-block {
+    padding: 0.7rem 0.5rem 0.7rem 0;
+    border-top: none;
+    margin-top: 0;
+    gap: 0.4rem;
+  }
+  .dashboard-user-actions {
+    gap: 0.7rem;
+  }
+  .dashboard-content {
+    padding: 1rem 0.5rem 1rem 0.5rem;
+  }
+  body.menu-open .dashboard-sidebar-overlay {
+    display: block;
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard-sidebar a {
+    font-size: 0.85rem;
+    padding: 6px 4px 6px 4px;
+  }
+  .dashboard-user-email {
+    font-size: 0.9rem;
+  }
+  .dashboard-content {
+    padding: 20px;
+  }
+}

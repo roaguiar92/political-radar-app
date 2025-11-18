@@ -17,7 +17,7 @@ function clearToastTimeout(timeoutId) {
 }
 
 export function injectToastCss() {
-    if (!document.querySelector(`link[href="${TOAST_CSS_PATH}"]`)) {
+    if (!document.querySelector(`link[href = "${TOAST_CSS_PATH}"]`)) {
         const link = document.createElement('link');
         link.rel = 'stylesheet';
         link.href = TOAST_CSS_PATH;
@@ -25,28 +25,29 @@ export function injectToastCss() {
     }
 }
 
-let toastTimeoutId = null;
+function hideToast(toast, timeoutIdRef) {
+    toast.style.display = 'none';
+    clearToastTimeout(timeoutIdRef.current);
+    timeoutIdRef.current = null;
+}
 
 export function showToast(message, type = TOAST_DEFAULT_TYPE, duration = TOAST_DEFAULT_DURATION) {
-    injectToastCss();
     if (!message) return;
+    injectToastCss();
 
     const toast = getOrCreateToastElement();
     toast.className = `toast toast-${type}`;
     toast.innerHTML = `
-        <span class="toast-message">${message}</span>
-        <button class="toast-close" aria-label="Fechar">&times;</button>
-    `;
+    <><span class="toast-message">${message}</span><button class="toast-close" aria-label="Fechar">&times;</button></>
+    `
+        ;
     toast.style.display = 'flex';
 
-    const closeBtn = toast.querySelector('.toast-close');
-    closeBtn.onclick = () => {
-        toast.style.display = 'none';
-        clearToastTimeout(toastTimeoutId);
-    };
+    const timeoutIdRef = { current: null };
 
-    clearToastTimeout(toastTimeoutId);
-    toastTimeoutId = setTimeout(() => {
-        toast.style.display = 'none';
-    }, duration);
+    const closeBtn = toast.querySelector('.toast-close');
+    closeBtn.onclick = () => hideToast(toast, timeoutIdRef);
+
+    clearToastTimeout(timeoutIdRef.current);
+    timeoutIdRef.current = setTimeout(() => hideToast(toast, timeoutIdRef), duration);
 }
