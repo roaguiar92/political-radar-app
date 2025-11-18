@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Histórico de Gastos</title>
+  <!-- ESTILIZAÇÕES -->
+  <link rel="stylesheet" href="reset.css">
+  <link rel="stylesheet" href="root.css">
+  <link rel="stylesheet" href="historico.css" />
+</head>
+<body>
+<div id="app">
+  <!-- MENU APP -->
+  <nav class="menu">
+        <a href="dashboard.html" class="botao-voltar"
+          ><img
+            src="icons/chevron-left.png"
+            alt="menu"
+            class="menu-img"
+            id="btnMenu"
+        /></a>
+        <img src="icons/Título.png" alt="titulo" class="menu-titulo" />
+      </nav>
+  <!-- FIM MENU APP -->
+<main class="conteudo-historico">
+  <section class="secao-historico">
+    <h2 class="titulo-secao">Histórico de Gastos</h2>
+    <p class="nome-representante">Nome do Parlamentar</p>
+  </section>
+
+  <form class="filtros-historico">
+    <label>
+      Ano
+      <select>
+        <option>2025</option>
+        <option>2024</option>
+      </select>
+    </label>
+    <label>
+      Mês
+      <select>
+        <option>Janeiro</option>
+        <option>Fevereiro</option>
+        <option>Março</option>
+        <option>Abril</option>
+        <option>Maio</option>
+        <option>Junho</option>
+        <option>Julho</option>
+        <option>Agosto</option>
+        <option>Setembro</option>
+        <option>Outubro</option>
+        <option>Novembro</option>
+        <option>Dezembro</option>
+      </select>
+    </label>
+  </form>
+
+  <section class="grafico">
+    <img src="imgs/Gráfico Barras.png" alt="" />
+  </section>
+
+  <section class="lista-gastos">
+    <h3>Gastos de Março</h3>
+
+    <article class="item-gasto">
+      <div class="descricao-gasto">
+        <p class="tipo-despesa">Manutenção de Escritório</p>
+        <p class="data-gasto">Data: 15/03/2025</p>
+        <p class="valor-gasto">R$ 500,00</p>
+      </div>
+      <a href="detalhes.html" class="botao-detalhes">Ver detalhes</a>
+    </article>
+
+    <article class="item-gasto">
+      <div class="descricao-gasto">
+        <p class="tipo-despesa">Manutenção de Escritório</p>
+        <p class="data-gasto">Data: 15/03/2025</p>
+        <p class="valor-gasto">R$ 800,00</p>
+      </div>
+      <a href="detalhes.html" class="botao-detalhes">Ver detalhes</a>
+    </article>
+
+    <a href="#" class="botao-ver-mais">Ver mais</a>
+  </section>
+</div>
+</main>
+<script src="scriptMenu.js"></script>
+<script src="api.js"></script>
+</body>
+</html>

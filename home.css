@@ -1,0 +1,126 @@
+.conteudo-home {
+  padding: 16px;
+}
+
+.boas-vindas {
+  margin: 64px 0;
+  padding: 16px;
+  text-align: center;
+  display: grid;
+  gap: 24px;
+  background-color: #efefef;
+}
+
+.boas-vindas h1 {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #004A8F;
+}
+
+.barra-pesquisa-section {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.barra-pesquisa {
+  border: none;
+  background-color: rgba(196, 196, 196, 0.427);
+  border-radius: 16px;
+  padding: 6px 16px;
+  margin-right: 12px;
+}
+
+.barra-pesquisa::placeholder {
+  color: rgba(40, 40, 54, 0.25);
+  opacity: 1; 
+}
+
+.icon-lupa {
+  width: 15px;
+}
+
+/* SEÇÃO PRINCIPAL */
+.secao-interesse {
+  padding: 20px 18px;
+  text-align: center;
+}
+
+.titulo-interesse {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--cor-primaria);
+  margin-bottom: 20px;
+}
+
+/* LISTA DE CANDIDATOS */
+.lista-interesse {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 4px;
+}
+
+/* CARD INDIVIDUAL */
+.card-interesse {
+  display: grid;
+  grid-template-columns: 64px auto;
+  gap: 8px;
+  align-items: center;
+  padding: 12px;
+}
+
+/* FOTO */
+.foto-interesse {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* TEXTOS */
+.info-interesse {
+  text-align: left;
+  justify-content: center;
+  padding-left: 32px;
+  /* border: 1px solid red; */
+}
+
+.nome-interesse {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 2px;
+  color: #004A8F;
+}
+
+.cargo-interesse {
+  font-size: 14px;
+  color: #4a4a4a;
+  margin-bottom: 4px;
+}
+
+.descricao-interesse {
+  font-size: 14px;
+  color: #777;
+}
+
+/* BOTÃO VER MAIS */
+.botao-ver-mais {
+  margin: 20px auto 0;
+  display: block;
+  background: #0356c26b;
+  border: none;
+  padding: 8px 24px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 32px;
+  cursor: pointer;
+  box-shadow: #4a4a4a98 0px 2px 4px -1px;
+}
+
+.botao-ver-mais span {
+  color: #00438B;
+  font-weight: 800;
+}
+

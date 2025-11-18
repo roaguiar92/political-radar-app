@@ -1,0 +1,139 @@
+.conteudo-historico {
+  padding: 16px;
+  display: grid;
+  gap: 16px;
+}
+
+.secao-historico {
+  margin-top: 24px;
+}
+
+.secao-historico .titulo-secao {
+  color: #243343;
+  font-size: 1.4rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.secao-historico .nome-representante {
+  color: #243343;
+  font-weight: 600;
+  margin-top: 16px;
+  text-align: center;
+}
+
+.filtros-historico {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-top: 20px;
+  /* border: 1px solid red; */
+  justify-content: space-around;
+}
+
+.filtros-historico label {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  font-size: 14px;
+  color: var(--cor-secundaria);
+  font-weight: bold;
+}
+
+.filtros-historico select {
+  padding: 7px 10px;
+  border-radius: 6px;
+  border: 1px solid var(--cor-secundaria);
+  background: var(--cor-branco);
+  color: var(--cor-secundaria);
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.grafico {
+  display: flex;
+  justify-content: center;
+}
+
+.grafico img {
+  width: 100%;
+}
+
+.lista-gastos {
+  display: grid;
+  gap: 12px;
+}
+
+.lista-gastos h3 {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #243343;
+  font-weight: bold;
+  margin: 8px 0;
+}
+
+.item-gasto {
+  border: 1px solid #cfd8dc;         /* borda suave */
+  border-radius: 10px;
+  padding: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  background: #ffffff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08); /* sombra suave */
+}
+
+.descricao-gasto {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.tipo-despesa {
+  font-size: 15px;
+  font-weight: 600;
+  color: #243343;
+  margin: 0;
+}
+
+.data-gasto {
+  font-size: 14px;
+  color: #546e7a;
+  margin: 0;
+}
+
+.valor-gasto {
+  font-size: 16px;
+  font-weight: 700;
+  color: #243343;
+  margin: 8px 0 0 0;
+}
+
+.botao-detalhes {
+  font-size: 14px;
+  font-weight: 600;
+  color: #004A8F;           
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.botao-detalhes::after {
+  content: "›";           
+  font-size: 18px;
+  color: #004A8F;
+  margin-top: 1px;
+}
+
+.botao-ver-mais {
+  display: block;
+  margin: 0 auto;
+  padding: 10px 20px;
+  color: #243343;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+}
+

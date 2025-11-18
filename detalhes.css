@@ -1,0 +1,61 @@
+.titulo-secao {
+  margin-top: 90px;
+}
+
+.conteudo-detalhes {
+  padding: 20px;
+  display: grid;
+  gap: 20px;
+}
+
+h1 {
+  color: #243343;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 48px;
+}
+
+.linha-info {
+  margin: 24px 0 32px 0;
+}
+
+.linha-info p {
+  margin-bottom: 12px;
+}
+
+.linha-info span {
+  color: #243343;
+  font-weight: bold;
+}
+
+.linha-info-2 {
+  padding: 9px 6px;
+  border-radius: 8px;
+  border: 1px solid #2F6A6E;
+}
+
+.linha-info-2 p {
+  margin-bottom: 32px;
+}
+
+.linha-info-2 span {
+  color: #243343;
+  font-weight: bold;
+}
+
+.icon-pdf {
+  display: flex;
+  flex-direction: column; 
+  align-items: end;   
+  gap: 4px;            
+}
+
+.icon-pdf img{
+  margin-right: 16px;      
+}
+
+.linha-info-2 a {
+  text-decoration: none;
+}
+
