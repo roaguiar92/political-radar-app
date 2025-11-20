@@ -13,6 +13,7 @@ function createLogo() {
     const logo = document.createElement('img');
     logo.src = 'assets/login/logo-radar.svg';
     logo.alt = 'Logo Radar';
+    logo.draggable = false
     return logo;
 }
 

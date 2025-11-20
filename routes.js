@@ -6,6 +6,8 @@ import { LoginForm } from './components/login-component.js';
 import { RegisterForm } from './components/register/register-component.js';
 import { isAuthenticated } from './components/utils/is-auth.js';
 
+const AUTH_ROUTES = ['/', '/forgot-password', '/cadastro'];
+
 export const routes = {
     '/': () => {
         const container = document.createElement('div');
@@ -62,36 +64,43 @@ function createMobileHeader() {
     document.body.prepend(header);
 }
 
-
 export function renderRoute() {
     const contentDiv = document.getElementById('content');
     const path = window.location.hash.replace('#', '') || '/';
     const render = routes[path];
 
-    const dashboardRoutes = ['/home', '/candidates', '/monitoramento-de-gastos'];
 
-    if (dashboardRoutes.includes(path)) {
-        createMobileHeader();
-    } else {
+    function isDashboardRoute(path) {
+        return !AUTH_ROUTES.includes(path) && path !== '/404';
+    }
+
+    //Remove header mobile se não for dashboard
+    if (!isDashboardRoute(path)) {
         const header = document.querySelector('.dashboard-header-mobile');
         if (header) header.remove();
     }
 
+    // Redireciona para 404 se rota não existe
     if (!render) {
         window.location.hash = '/404';
         return;
     }
 
-    if (path === '/home' && !isAuthenticated()) {
+    // Bloqueia acesso a rotas protegidas se não autenticado
+    if (isDashboardRoute(path) && !isAuthenticated()) {
         window.location.hash = '/';
         return;
+    }
+
+    // Cria header mobile se for dashboard
+    if (isDashboardRoute(path)) {
+        createMobileHeader();
     }
 
     contentDiv.innerHTML = '';
     contentDiv.appendChild(render());
 
-    const authRoutes = ['/', '/forgot-password', '/cadastro', '/monitoramento-de-gastos'];
-    document.body.classList.toggle('auth-bg', authRoutes.includes(path));
+    document.body.classList.toggle('auth-bg', AUTH_ROUTES.includes(path));
 }
 
 window.addEventListener('hashchange', renderRoute);
