@@ -1,6 +1,7 @@
 import { Candidates } from './components/dashboard/candidates-page.js';
-import { Home } from './components/dashboard/home-component.js';
+import { Home } from './components/dashboard/home-component-page.js';
 import { MonitoramentoDeGastos } from './components/dashboard/monitoramento-de-gastos-page.js';
+import { ProjetosePropostas } from './components/dashboard/projetos-e-propostas-page.js';
 import { ForgotPasswordForm } from './components/forgot-password-component.js';
 import { LoginForm } from './components/login-component.js';
 import { RegisterForm } from './components/register/register-component.js';
@@ -46,6 +47,11 @@ export const routes = {
     '/monitoramento-de-gastos': () => {
         const container = document.createElement('div');
         container.appendChild(MonitoramentoDeGastos());
+        return container;
+    },
+    '/ProjetosePropostas': () => {
+        const container = document.createElement('div');
+        container.appendChild(ProjetosePropostas());
         return container;
     },
 };

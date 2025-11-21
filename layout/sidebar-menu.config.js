@@ -5,14 +5,19 @@ export const sidebarMenuItems = [
         icon: 'home'
     },
     {
-        title: 'Candidatos',
+        title: 'Perfil do candidato',
         href: '#/candidates',
         icon: 'group'
     },
     {
         title: 'Monitoramento de gastos',
         href: '#/monitoramento-de-gastos',
-        icon: 'group'
+        icon: 'Analytics'
+    },
+    {
+        title: 'Projetos e Propostas',
+        href: '#/ProjetosePropostas',
+        icon: 'Engineering'
     },
 
 ];
