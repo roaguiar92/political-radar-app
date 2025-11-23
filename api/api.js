@@ -1,1 +1,1 @@
-export const API_BASE_URL = 'https://radar-politico-api.onrender.com'
+export const API_BASE_URL = 'http://localhost:8003' //'https://radar-politico-api.onrender.com'

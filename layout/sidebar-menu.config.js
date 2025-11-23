@@ -5,12 +5,12 @@ export const sidebarMenuItems = [
         icon: 'home'
     },
     {
-        title: 'Perfil do candidato',
+        title: 'Deputados', //Alterado para exibir a lista de candidatos.
         href: '#/candidates',
         icon: 'group'
     },
     {
-        title: 'Monitoramento de gastos',
+        title: 'Monitoramento de gastos públicos dos Deputados',
         href: '#/monitoramento-de-gastos',
         icon: 'Analytics'
     },

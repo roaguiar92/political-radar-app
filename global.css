@@ -102,7 +102,7 @@ body.auth-bg {
     width: 100%;
     box-sizing: border-box;
     margin-bottom: 15px;
-    margin-top: 15px;
+    margin-top: 10px;
 }
 
 .input-icon-container input {
@@ -117,7 +117,7 @@ body.auth-bg {
 
 .input-icon-container .material-symbols-outlined {
     position: absolute;
-    top: 50%;
+    top: 30%; /* Precisa centralizar */
     color: #243343;
     font-size: 22px;
     pointer-events: none;
@@ -310,4 +310,259 @@ body.auth-bg {
 
 body.menu-open {
     overflow: hidden;
+}
+
+/* PÁGINA DE CANDIDATOS - USAR ESTES ESTILOS PARA CANDIDATOS EM OUTRAS PÁGINAS  */
+.candidates-container {
+    padding: 0;
+    max-width: 100%;
+}
+
+.candidates-header {
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.candidates-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #243343;
+    margin: 0;
+    font-family: 'Inter', Arial, sans-serif;
+}
+
+.candidates-header .input-icon-container {
+    max-width: 400px;
+}
+
+.candidates-header .input-icon-container input {
+    padding: 0.75rem 1rem 0.75rem 45px;
+}
+
+.candidates-main {
+    min-height: 400px;
+}
+
+.deputies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.loading-state,
+.empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* ===== PAGINAÇÃO ===== */
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+.pagination-pages {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.pagination-btn {
+    min-width: 40px;
+    height: 40px;
+    padding: 0.5rem 1rem;
+    border: 1px solid #2F6A6E80;
+    background: #fff;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 1rem;
+    color: #243343;
+}
+
+.pagination-btn:hover:not(:disabled) {
+    background: #f7f7f7;
+    border-color: #243343;
+}
+
+.pagination-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.pagination-btn.active {
+    background: #243343;
+    color: #fff;
+    border-color: #243343;
+}
+
+/* ===== CARD DE DEPUTADO COM FRAME ===== */
+.deputado-card {
+    background: #fff;
+    border-radius: 15px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.5rem;
+    border: 1px solid #e0e0e0;
+    position: relative;
+    overflow: hidden;
+}
+
+.deputado-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #243343 0%, #2F6A6E 100%);
+}
+
+.deputado-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+/* Frame decorativo para a foto */
+.deputado-photo-frame {
+    position: relative;
+    padding: 8px;
+    background: linear-gradient(135deg, #243343 0%, #2F6A6E 50%, #243343 100%);
+    border-radius: 50%;
+    box-shadow: 0 4px 12px rgba(36, 51, 67, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.deputado-photo {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: #f7f7f7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 4px solid #fff;
+    position: relative;
+}
+
+.deputado-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.deputado-photo .material-symbols-outlined {
+    font-size: 70px;
+    color: #999;
+}
+
+.deputado-info {
+    width: 100%;
+}
+
+.deputado-name {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 0 0 0.5rem 0;
+    color: #243343;
+    font-family: 'Inter', Arial, sans-serif;
+}
+
+.deputado-details {
+    font-size: 0.95rem;
+    color: #666;
+    font-family: 'Inter', Arial, sans-serif;
+    font-weight: 500;
+}
+
+/*  PÁGINA DE CANDIDATOS MOBILE SEGUINDO FIGMA */
+
+@media (max-width: 768px) {
+    /* Layout horizontal no mobile */
+    .candidates-header .input-icon-container {
+        max-width: 100% !important;
+        width: 100% !important;
+    }
+    .candidates-header .input-icon-container input {
+        padding: 1rem 1rem 1rem 50px !important;
+        font-size: 1.1rem !important;
+        height: auto !important;
+    }
+    
+        .candidates-header .input-icon-container .icon-left {
+            font-size: 24px !important;
+            left: 18px !important;
+    }
+    .candidates-header .input-icon-container input[type="email"] {
+                padding-left: 55px !important;
+    }
+    /* Layout horizontal no mobile */
+    .deputado-card {
+        flex-direction: row;
+        align-items: center;
+        text-align: left;
+        gap: 1rem;
+        padding: 1rem;
+    }
+    
+    /* Foto menor e à esquerda */
+    .deputado-photo-frame {
+        flex-shrink: 0;
+        padding: 4px;
+    }
+    
+    .deputado-photo {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .deputado-photo .material-symbols-outlined {
+        font-size: 40px;
+    }
+    
+    /* Informações à direita */
+    .deputado-info {
+        flex: 1;
+        min-width: 0;
+    }
+    
+    .deputado-name {
+        font-size: 1rem;
+        margin-bottom: 0.25rem;
+    }
+    
+    .deputado-details {
+        font-size: 0.85rem;
+    }
+    
+    /* Grid também ajusta no mobile */
+    .deputies-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
 }
