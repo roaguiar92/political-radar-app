@@ -6,6 +6,7 @@ import { ForgotPasswordForm } from './components/forgot-password-component.js';
 import { LoginForm } from './components/login-component.js';
 import { RegisterForm } from './components/register/register-component.js';
 import { isAuthenticated } from './components/utils/is-auth.js';
+import { AboutCandidate } from './components/dashboard/about-candidate.js'; // ← ADICIONAR ESTA LINHA
 
 const AUTH_ROUTES = ['/', '/forgot-password', '/cadastro'];
 
@@ -73,6 +74,16 @@ function createMobileHeader() {
 export function renderRoute() {
     const contentDiv = document.getElementById('content');
     const path = window.location.hash.replace('#', '') || '/';
+    if (path.startsWith('/candidates/') && path !== '/candidates') {
+        const container = document.createElement('div');
+        container.appendChild(AboutCandidate());
+        contentDiv.innerHTML = '';
+        contentDiv.appendChild(container);
+        if (isAuthenticated()) createMobileHeader();
+        return;
+    }
+    
+    
     const render = routes[path];
 
 
