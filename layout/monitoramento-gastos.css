@@ -1,0 +1,175 @@
+/* BASE (MOBILE FIRST) */
+
+.conteudo-dashboard {
+  padding: 16px;
+  display: grid;
+  gap: 16px;
+}
+
+.secao-titulo {
+  margin-top: 24px;
+}
+
+.secao-titulo .titulo-pagina {
+  color: #243343;
+  font-size: 1.4rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.secao-titulo .nome-representante {
+  color: #243343;
+  font-weight: 600;
+  margin-top: 16px;
+  text-align: center;
+}
+
+/* VALOR TOTAL */
+.secao-valor-total {
+  margin-top: 32px;
+  text-align: center;
+}
+
+.secao-valor-total .valor-total {
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+
+.secao-valor-total .descricao-total {
+  margin-top: 12px;
+  font-size: 1rem;
+}
+
+/* GRÁFICO */
+.secao-grafico {
+  display: flex;
+  justify-content: center;
+  margin-top: 24px;
+  padding: 0 12px;
+}
+
+/* LEGENDA */
+.legenda-gastos {
+  margin: auto;
+  max-width: 260px;
+}
+
+.legenda-gastos ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.legenda-gastos li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  font-size: 16px;
+  color: #243343;
+}
+
+.cor {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+/* CORES DAS CATEGORIAS */
+.cor-gabinete { background-color: #1d3557; }
+.cor-viagens { background-color: #6c7a89; }
+.cor-combustivel { background-color: #457b9d; }
+.cor-hospedagem { background-color: #a8dadc; }
+.cor-outras { background-color: #52796f; }
+
+/* BOTÃO */
+.botao-historico {
+  margin-top: 18px;
+  text-align: center;
+}
+
+.botao-historico button {
+  background: #243343;
+  color: var(--cor-branco);
+  border: none;
+  padding: 10px 50px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.botao-historico button a {
+  text-decoration: none;
+  color: inherit;
+}
+
+
+
+/* TABLET (≥ 768px) */
+
+@media (min-width: 768px) {
+
+  .conteudo-dashboard {
+    max-width: 800px;
+    margin: 0 auto;
+    gap: 24px;
+  }
+
+  .secao-titulo .titulo-pagina {
+    font-size: 1.8rem;
+  }
+
+  .secao-titulo .nome-representante {
+    font-size: 1.2rem;
+  }
+
+  .secao-valor-total .valor-total {
+    font-size: 1.6rem;
+  }
+
+  .secao-grafico {
+    margin-top: 32px;
+  }
+
+  .legenda-gastos li {
+    font-size: 17px;
+  }
+
+  .botao-historico button {
+    font-size: 18px;
+    padding: 10px 60px;
+  }
+}
+
+
+
+/* DESKTOP (≥ 1024px) */
+
+@media (min-width: 1024px) {
+
+  .conteudo-dashboard {
+    max-width: 1100px;
+  }
+
+  .secao-grafico {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 40px;
+    gap: 32px;
+  }
+
+  .legenda-gastos {
+    margin: 0;
+  }
+
+  .legenda-gastos ul {
+    font-size: 18px;
+  }
+
+  .secao-valor-total .valor-total {
+    font-size: 1.8rem;
+  }
+}

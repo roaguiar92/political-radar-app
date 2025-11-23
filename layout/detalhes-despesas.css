@@ -1,0 +1,130 @@
+/*BASE (MOBILE FIRST)*/
+
+.titulo-secao {
+  margin-top: 90px;
+}
+
+.conteudo-detalhes {
+  padding: 20px;
+  display: grid;
+  gap: 20px;
+}
+
+/* Títulos */
+h1 {
+  color: #243343;
+  font-size: 1.4rem;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 48px;
+}
+
+/* BLOCO 1 */
+.linha-info {
+  margin: 24px 0 32px 0;
+}
+
+.linha-info p {
+  margin-bottom: 12px;
+}
+
+.linha-info span {
+  color: #243343;
+  font-weight: bold;
+}
+
+/* BLOCO 2 (borda verde) */
+.linha-info-2 {
+  padding: 12px 10px;
+  border-radius: 8px;
+  border: 1px solid #2F6A6E;
+}
+
+.linha-info-2 p {
+  margin-bottom: 32px;
+}
+
+.linha-info-2 span {
+  color: #243343;
+  font-weight: bold;
+}
+
+/* ÍCONE PDF */
+.icon-pdf {
+  display: flex;
+  flex-direction: column; 
+  align-items: flex-end;
+  gap: 6px;
+}
+
+.icon-pdf img {
+  width: 40px;
+  margin-right: 16px;
+}
+
+/* Links */
+.linha-info-2 a {
+  text-decoration: none;
+  color: inherit;
+}
+
+
+
+/*TABLET (≥ 768px)*/
+
+@media (min-width: 768px) {
+
+  .conteudo-detalhes {
+    max-width: 800px;
+    margin: auto;
+    gap: 28px;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+    margin-top: 32px;
+  }
+
+  .linha-info p,
+  .linha-info-2 p {
+    font-size: 1.1rem;
+  }
+
+  .linha-info-2 {
+    padding: 16px 14px;
+  }
+
+  .icon-pdf img {
+    width: 48px;
+  }
+}
+
+
+
+/*DESKTOP (≥ 1024px)*/
+
+@media (min-width: 1024px) {
+
+  .conteudo-detalhes {
+    max-width: 1100px;
+  }
+
+  /* Linha info 1 e 2 podem virar duas colunas */
+  .linha-info,
+  .linha-info-2 {
+    font-size: 1.1rem;
+  }
+
+  /* Ícone PDF ao lado, não mais em coluna */
+  .icon-pdf {
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .icon-pdf img {
+    width: 52px;
+    margin-right: 0;
+  }
+}

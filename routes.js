@@ -1,11 +1,17 @@
-import { Candidates } from './components/dashboard/candidates-page.js';
-import { Home } from './components/dashboard/home-component-page.js';
-import { MonitoramentoDeGastos } from './components/dashboard/monitoramento-de-gastos-page.js';
-import { ProjetosePropostas } from './components/dashboard/projetos-e-propostas-page.js';
-import { ForgotPasswordForm } from './components/forgot-password-component.js';
-import { LoginForm } from './components/login-component.js';
-import { RegisterForm } from './components/register/register-component.js';
-import { isAuthenticated } from './components/utils/is-auth.js';
+import { Candidates } from '/components/dashboard/candidates-page.js';
+import { Home } from '/components/dashboard/home-component-page.js';
+import { MonitoramentoDeGastos } from '/components/dashboard/monitoramento-de-gastos-page.js';
+import { ProjetosePropostas } from '/components/dashboard/projetos-e-propostas-page.js';
+import { ForgotPasswordForm } from '/components/forgot-password-component.js';
+import { LoginForm } from '/components/login-component.js';
+import { RegisterForm } from '/components/register/register-component.js';
+import { isAuthenticated } from '/components/utils/is-auth.js';
+
+// home-despesas
+import { HistoricoPage } from '/components/dashboard/historico-page.js';
+import { DetalhesDespesasPage } from '/components/dashboard/detalhes-despesas-page.js';
+import { HomeNoticiasPage } from '/components/dashboard/home-noticias-page.js';
+import { HomeNoticiasDetalhesPage } from '/components/dashboard/home-noticias-detalhes-page.js';
 
 const AUTH_ROUTES = ['/', '/forgot-password', '/cadastro'];
 
@@ -33,6 +39,26 @@ export const routes = {
         container.appendChild(Home());
         return container;
     },
+    '/historico': () => {
+        const container = document.createElement('div');
+        container.appendChild(HistoricoPage());
+        return container;
+    },
+    '/detalhes-despesas': () => {
+        const container = document.createElement('div');
+        container.appendChild(DetalhesDespesasPage());
+        return container;
+    },
+    '/noticias': () => {
+        const container = document.createElement('div');
+        container.appendChild(HomeNoticiasPage());
+        return container;
+    },
+    '/noticias/detalhes': () => {
+        const container = document.createElement('div');
+        container.appendChild(HomeNoticiasDetalhesPage());
+        return container;
+    },
     '/404': () => {
         const div = document.createElement('div');
         div.className = 'not-found';
@@ -49,7 +75,7 @@ export const routes = {
         container.appendChild(MonitoramentoDeGastos());
         return container;
     },
-    '/ProjetosePropostas': () => {
+    '/projetos-e-propostas': () => {
         const container = document.createElement('div');
         container.appendChild(ProjetosePropostas());
         return container;
@@ -58,6 +84,7 @@ export const routes = {
 
 function createMobileHeader() {
     if (document.querySelector('.dashboard-header-mobile')) return;
+
     const header = document.createElement('header');
     header.className = 'dashboard-header-mobile';
 
@@ -75,30 +102,29 @@ export function renderRoute() {
     const path = window.location.hash.replace('#', '') || '/';
     const render = routes[path];
 
-
     function isDashboardRoute(path) {
         return !AUTH_ROUTES.includes(path) && path !== '/404';
     }
 
-    //Remove header mobile se não for dashboard
+    // Remove o header se rota não for dashboard
     if (!isDashboardRoute(path)) {
         const header = document.querySelector('.dashboard-header-mobile');
         if (header) header.remove();
     }
 
-    // Redireciona para 404 se rota não existe
+    // Rota inexistente -> 404
     if (!render) {
         window.location.hash = '/404';
         return;
     }
-
-    // Bloqueia acesso a rotas protegidas se não autenticado
+    
+    // Bloqueia acesso a rotas
     if (isDashboardRoute(path) && !isAuthenticated()) {
         window.location.hash = '/';
         return;
     }
 
-    // Cria header mobile se for dashboard
+    // Cria header se for dashboard
     if (isDashboardRoute(path)) {
         createMobileHeader();
     }

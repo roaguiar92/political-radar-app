@@ -1,0 +1,219 @@
+.conteudo-home {
+  padding: 16px;
+}
+
+.boas-vindas {
+  margin: 48px 0;
+  padding: 16px;
+  text-align: center;
+  display: grid;
+  gap: 20px;
+  background-color: #efefef;
+}
+
+.boas-vindas h1 {
+  font-size: 1.4em;
+  font-weight: bold;
+  color: #004A8F;
+}
+
+.barra-pesquisa-section {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  padding: 0 12px;
+}
+
+.barra-pesquisa {
+  border: none;
+  background-color: rgba(196, 196, 196, 0.43);
+  border-radius: 16px;
+  padding: 8px 16px;
+  margin-right: 12px;
+  width: 100%;
+  max-width: 260px;
+}
+
+.barra-pesquisa::placeholder {
+  color: rgba(40, 40, 54, 0.25);
+  opacity: 1;
+}
+
+.icon-lupa {
+  width: 18px;
+}
+
+/* ------------------------- */
+/* SEÇÃO PRINCIPAL */
+/* ------------------------- */
+
+.secao-interesse {
+  padding: 20px 18px;
+  text-align: center;
+}
+
+.titulo-interesse {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--cor-primaria);
+  margin-bottom: 20px;
+}
+
+/* LISTA */
+.lista-interesse {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 12px;
+}
+
+/* CARD */
+.card-interesse {
+  display: grid;
+  grid-template-columns: 70px auto;
+  gap: 10px;
+  align-items: center;
+  padding: 12px;
+}
+
+/* FOTO */
+.foto-interesse {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* TEXTOS */
+.info-interesse {
+  text-align: left;
+  padding-left: 8px;
+}
+
+.nome-interesse {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 2px;
+  color: #004A8F;
+}
+
+.cargo-interesse {
+  font-size: 14px;
+  color: #4a4a4a;
+  margin-bottom: 4px;
+}
+
+.descricao-interesse {
+  font-size: 14px;
+  color: #777;
+}
+
+/* BOTÃO */
+.botao-ver-mais {
+  margin: 20px auto 0;
+  display: block;
+  background: #0356c26b;
+  border: none;
+  padding: 10px 26px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 32px;
+  cursor: pointer;
+  box-shadow: #4a4a4a98 0px 2px 4px -1px;
+}
+
+.botao-ver-mais span {
+  color: #00438B;
+  font-weight: 800;
+}
+
+@media (min-width: 600px) {
+
+  .boas-vindas h1 {
+    font-size: 1.6em;
+  }
+
+  .card-interesse {
+    grid-template-columns: 90px auto;
+  }
+
+  .foto-interesse {
+    width: 90px;
+    height: 90px;
+  }
+}
+
+@media (min-width: 768px) {
+
+  .conteudo-home {
+    padding: 32px;
+  }
+
+  .lista-interesse {
+    gap: 16px;
+  }
+
+  .card-interesse {
+    grid-template-columns: 110px auto;
+    padding: 18px;
+  }
+
+  .foto-interesse {
+    width: 110px;
+    height: 110px;
+  }
+
+  .info-interesse {
+    padding-left: 16px;
+  }
+
+  .nome-interesse {
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 1024px) {
+
+  .conteudo-home {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .lista-interesse {
+    gap: 20px;
+  }
+
+  .card-interesse {
+    grid-template-columns: 130px auto;
+  }
+
+  .foto-interesse {
+    width: 130px;
+    height: 130px;
+  }
+
+  .titulo-interesse {
+    font-size: 24px;
+  }
+}
+
+@media (min-width: 1400px) {
+
+  .conteudo-home {
+    max-width: 1100px;
+  }
+
+  .card-interesse {
+    padding: 22px;
+  }
+
+  .foto-interesse {
+    width: 150px;
+    height: 150px;
+  }
+
+  .titulo-interesse {
+    font-size: 26px;
+  }
+}

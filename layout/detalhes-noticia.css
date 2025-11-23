@@ -1,0 +1,159 @@
+/* BASE (MOBILE FIRST) */
+
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
+}
+
+/* Botão voltar */
+.botao-voltar {
+  background: none;
+  border: none;
+}
+
+/* Imagem da notícia */
+.imagem-noticia {
+  margin-top: 48px;
+  width: 100%;
+  max-width: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+/* Informações — data, autor, etc */
+.informacoes {
+  font-size: 10px;
+  color: #828282;
+  margin: 4px 0 24px 16px;
+}
+
+/* Texto da notícia */
+.texto-noticia {
+  font-size: 13.5px;
+  line-height: 1.6;
+  text-align: justify;
+  margin: 0 auto 22px;
+  width: 85%;
+  max-width: 85%;
+}
+
+/* Título */
+.titulo-noticia {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 24px;
+  line-height: 1.3;
+  text-align: center;
+}
+
+/* Subtítulo */
+.subtitulo-noticia {
+  font-size: 13px;
+  color: #555;
+  margin-bottom: 12px;
+  line-height: 1.4;
+  width: 85%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* BOTÃO VER MAIS */
+.botao-ver-mais {
+  margin: 20px auto 34px;
+  display: block;
+  background: #0356c26b;
+  border: none;
+  padding: 8px 24px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 32px;
+  cursor: pointer;
+  box-shadow: #4a4a4a98 0px 2px 4px -1px;
+}
+
+.botao-ver-mais span {
+  color: #00438B;
+  font-weight: 800;
+}
+
+.botao-ver-mais:hover {
+  opacity: .8;
+}
+
+
+
+/* TABLET (≥ 768px) */
+
+@media (min-width: 768px) {
+
+  .titulo-noticia {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+
+  .subtitulo-noticia {
+    font-size: 15px;
+    width: 75%;
+  }
+
+  .texto-noticia {
+    font-size: 15px;
+    width: 75%;
+    max-width: 800px;
+  }
+
+  .informacoes {
+    font-size: 12px;
+    margin-left: 32px;
+  }
+
+  .imagem-noticia {
+    margin-top: 32px;
+  }
+
+  .botao-ver-mais {
+    padding: 10px 32px;
+    font-size: 17px;
+  }
+}
+
+/* DESKTOP (≥ 1024px) */
+
+@media (min-width: 1024px) {
+
+  .titulo-noticia {
+    font-size: 24px;
+    width: 70%;
+    margin: 24px auto;
+  }
+
+  .subtitulo-noticia {
+    width: 70%;
+    font-size: 16px;
+  }
+
+  .texto-noticia {
+    width: 60%;
+    max-width: 900px;
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  .informacoes {
+    font-size: 13px;
+    margin-left: 20%;
+  }
+
+  .imagem-noticia {
+    max-width: 900px;
+    margin: 40px auto 0;
+    display: block;
+    border-radius: 8px;
+  }
+
+  .botao-ver-mais {
+    padding: 12px 40px;
+    font-size: 18px;
+  }
+}
