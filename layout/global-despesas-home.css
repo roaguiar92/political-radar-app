@@ -1,0 +1,99 @@
+/* FONTES */
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+:root {
+  --cor-primaria: #004A8F;
+  --cor-secundaria: #243343;
+  --cor-fundo: #F5F5F5;
+  --cor-branco: #ffffff;
+  --fonte-titulo: "Montserrat", sans-serif;
+  --fonte-texto: "Lato", sans-serif;
+  --cor-fonte-titulo: #004A8F;
+  --cor-fonte-texto: #243343v;
+  /* simualação mobile */
+  --largura-mobile: 390px;
+  --altura-mobile: 100vh;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  border-radius: 20px;
+  background-color: var(--cor-fundo); 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+#app {
+  width: var(--largura-mobile);
+  height: var(--altura-mobile);
+  background-color: var(--cor-fundo);
+  color: var(--cor-secundaria);
+  border-radius: 16px;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.menu {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: var(--largura-mobile);
+  background-color: var(--cor-primaria);
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1000;
+}
+
+.menu-img {
+  margin-left: 16px;
+}
+
+.menu-titulo {
+  margin-right: 16px;
+}
+
+.menu-list {
+  position: fixed;
+  top: 48px;
+  left: 560px;
+  border-radius: 8px;
+  background: #F5F5F5;
+  display: none;   
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  box-shadow: -4px 0 10px rgba(0,0,0,0.3);
+  z-index: 999; 
+}
+
+.menu-list li a {
+  font-size: 16px;
+  text-decoration: none;
+  border-bottom: 2px solid #004A8F;
+}
+
+/* Quando o menu abre */
+.menu-list.active {
+  display: flex;
+}
+
+h1, h2, h3, h4, h5, h6{
+  font-family: var(--fonte-titulo);
+  color: var(--cor-fonte-titulo);
+}
+
+p, a, ul, li, button, label, select, span{
+  font-family: var(--fonte-texto);
+  color: var(--cor-fonte-texto);
+}
