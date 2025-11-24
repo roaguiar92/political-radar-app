@@ -1,11 +1,12 @@
 import { DashboardLayout } from "../../layout/dashboard.js";
-import { obterDeputado } from '../../api/services/deputados/deputados-service.js';
+import { obterDeputado, obterDespesasDeputado } from '../../api/services/deputados/deputados-service.js';
 import { showToast } from '../ui/toast-component.js';
 import { Button } from '../ui/button-component.js';
 
 // Estado interno
 let state = {
     deputado: null,
+    despesas: null,
     isLoading: true,
     error: null
 };
@@ -15,11 +16,14 @@ function getDeputadoIdFromUrl() {
     const hash = window.location.hash;
     const match = hash.match(/\/candidates\/(\d+)/);
     return match ? parseInt(match[1], 10) : null;
+
 }
 
 // Carregar dados do deputado
+// Carregar dados do deputado
 async function loadDeputado() {
     const deputadoId = getDeputadoIdFromUrl();
+    console.log('Carregando deputado com ID:', deputadoId)
     
     if (!deputadoId) {
         state.error = 'ID do deputado não encontrado na URL';
@@ -33,8 +37,16 @@ async function loadDeputado() {
     renderContent();
     
     try {
-        const dados = await obterDeputado(deputadoId);
-        state.deputado = dados;
+        const anoAtual = new Date().getFullYear();
+        
+        // Carregar deputado e despesas em paralelo
+        const [dadosDeputado, dadosDespesas] = await Promise.all([
+            obterDeputado(deputadoId),
+            obterDespesasDeputado(deputadoId, anoAtual).catch(() => null)
+        ]);
+        
+        state.deputado = dadosDeputado;
+        state.despesas = dadosDespesas;
     } catch (error) {
         console.error('Erro ao carregar deputado:', error);
         state.error = error.message || 'Erro ao carregar dados do deputado';
@@ -174,6 +186,34 @@ function renderContent() {
     }
     
     cardContainer.appendChild(infoMenu);
+
+// seção de despesas
+
+cardContainer.appendChild(infoMenu);
+    
+// Seção de despesas (ano vigente)
+if (state.despesas && state.despesas.total_gastos !== undefined) {
+    const despesasSection = document.createElement('div');
+    despesasSection.className = 'candidate-despesas-section';
+    
+    const despesasTitle = document.createElement('h2');
+    despesasTitle.className = 'candidate-despesas-title';
+    despesasTitle.textContent = `Despesas ${state.despesas.ano || new Date().getFullYear()}`;
+    
+    const totalGastos = document.createElement('div');
+    totalGastos.className = 'candidate-total-gastos';
+    const valorFormatado = new Intl.NumberFormat('pt-BR', {
+        style: 'currency',
+        currency: 'BRL'
+    }).format(state.despesas.total_gastos);
+    totalGastos.textContent = valorFormatado;
+    
+    despesasSection.appendChild(despesasTitle);
+    despesasSection.appendChild(totalGastos);
+    cardContainer.appendChild(despesasSection);
+}
+
+
     container.appendChild(cardContainer);
 }
 

@@ -1,0 +1,96 @@
+{
+  "info": {
+    "name": "Backend Câmara API",
+    "description": "Coleção de requisições para testar o backend",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Health Check",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8000/api/v1/health",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["api", "v1", "health"]
+        }
+      }
+    },
+    {
+      "name": "Listar Deputados",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8000/api/v1/deputados?pagina=1&itens=20",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["api", "v1", "deputados"],
+          "query": [
+            {"key": "pagina", "value": "1"},
+            {"key": "itens", "value": "20"}
+          ]
+        }
+      }
+    },
+    {
+      "name": "Listar Deputados com Filtro",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8000/api/v1/deputados?pagina=1&itens=20&nome=Silva",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["api", "v1", "deputados"],
+          "query": [
+            {"key": "pagina", "value": "1"},
+            {"key": "itens", "value": "20"},
+            {"key": "nome", "value": "Silva"}
+          ]
+        }
+      }
+    },
+    {
+      "name": "Gastos de Deputado",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8000/api/v1/deputados/204554/gastos?ano=2024",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["api", "v1", "deputados", "204554", "gastos"],
+          "query": [
+            {"key": "ano", "value": "2024"}
+          ]
+        }
+      }
+    },
+    {
+      "name": "Top Gastos",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8000/api/v1/gastos/top?ano=2024&limite=10",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["api", "v1", "gastos", "top"],
+          "query": [
+            {"key": "ano", "value": "2024"},
+            {"key": "limite", "value": "10"}
+          ]
+        }
+      }
+    }
+  ]
+}
+
