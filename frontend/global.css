@@ -1,0 +1,568 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined');
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css");
+
+
+html,
+body {
+    width: 100vw;
+    max-width: 100vw;
+    overflow-x: hidden;
+}
+
+
+body {
+    font-family: 'Inter', Arial, sans-serif;
+    background: #f7f7f7;
+    margin: 0;
+}
+
+@media (max-width: 480px) {
+    html {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding-top: 56px;
+    }
+}
+
+img,
+video {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body.auth-bg {
+    background: linear-gradient(to right, #243343 50%, #f7f7f7 50%);
+}
+
+.card-section_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #e0e0e0;
+    border-radius: 15px;
+    width: 100%;
+    max-width: 400px;
+    margin: 2rem auto;
+    padding: 1.5rem 1rem;
+    background: #fff;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+
+}
+
+.card-section_login {
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0 auto;
+}
+
+
+.card-section_login>img {
+    margin: 0 auto;
+    width: 300px;
+    display: flex;
+
+}
+
+
+
+@media (max-width: 600px) {
+    .card-section_container {
+        max-width: 98vw;
+        margin: 1rem auto;
+        padding: 1rem 0.5rem;
+        border-radius: 10px;
+        box-sizing: border-box;
+        overflow-x: hidden;
+    }
+
+    .card-section_login {
+        padding: 0;
+        width: 100%;
+        max-width: 100vw;
+        box-sizing: border-box;
+    }
+}
+
+.input-icon-container {
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+    margin-top: 10px;
+}
+
+.input-icon-container input {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.input-icon-container {
+    position: relative;
+    width: 100%;
+}
+
+.input-icon-container .material-symbols-outlined {
+    position: absolute;
+    top: 30%; /* Precisa centralizar */
+    color: #243343;
+    font-size: 22px;
+    pointer-events: none;
+}
+
+.input-icon-container .icon-left {
+    left: 16px;
+}
+
+.input-icon-container .icon-right {
+    right: 16px;
+    cursor: pointer;
+    pointer-events: auto;
+    background: none;
+    border: none;
+}
+
+.input-icon-container input {
+    width: 100%;
+    padding: 0.75rem 0 0.75rem 15px;
+    border: 1px solid #2F6A6E80;
+    border-radius: 10px;
+    font-size: 1rem;
+    background: #fff;
+}
+
+.input-icon-container input[type="email"] {
+    padding: 0.75rem 1rem 0.75rem 45px;
+}
+
+
+.input-icon-container input:focus {
+    border: 1.5px solid #2F6A6E80;
+    box-shadow: 0 4px 16px rgba(47, 106, 110, 0.12);
+    background: #fff;
+}
+
+.card-section_options {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 16px;
+    margin-top: 15px;
+}
+
+.card_section_item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 16px;
+    color: #243343;
+    cursor: pointer;
+}
+
+.card_section_item input[type="checkbox"] {
+    accent-color: #2F6A6E;
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.card_section_item input[type="checkbox"]:checked {
+    accent-color: #406589;
+    box-shadow: 0 0 0 2px #40658933;
+}
+
+.forgot-btn {
+    background: none;
+    border: none;
+    color: #243343;
+    cursor: pointer;
+    font-size: 16px;
+    transition: color 0.2s;
+}
+
+.forgot-btn:hover {
+    color: #406589;
+}
+
+.login-separator {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    flex-direction: column;
+}
+
+.separator {
+    display: flex;
+    align-items: center;
+    color: #5E5E5E;
+    font-size: 0.95rem;
+    font-weight: 500;
+    margin: 0 0.5rem;
+    white-space: nowrap;
+}
+
+.separator::before,
+.separator::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: #5E5E5E;
+    margin: 0 0.5rem;
+}
+
+.login-separator_button-primary,
+.login-separator_button-secondary {
+    border-radius: 12px;
+    font-size: 16px;
+    transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+}
+
+.login-separator_button-primary {
+    background: #243343;
+    color: #f5f5f5;
+    padding: 15px;
+    border: none;
+    width: 100%;
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+
+.login-separator_button-secondary {
+    border: 1px solid #243343;
+    color: #243343;
+    padding: 8px;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    white-space: nowrap;
+}
+
+.login-separator_button-primary:hover,
+.login-separator_button-secondary:hover {
+    background: #2e465e;
+    color: #fff;
+    cursor: pointer;
+}
+
+.login_section-signup {
+    text-align: center;
+    margin-top: 1.5rem;
+    font-size: 1rem;
+    color: #243343;
+}
+
+.login_section-signup a {
+    color: #9F8C3D;
+    text-decoration: none;
+    margin-left: 0.3rem;
+    transition: color 0.2s;
+}
+
+.login_section-signup a:hover {
+    color: #243343;
+    text-decoration: underline;
+}
+
+.google-icon {
+    width: 30px;
+    height: 30px;
+}
+
+@media (max-width: 600px) {
+    .card-section_container {
+        padding: 0.8rem;
+        display: flex;
+    }
+}
+
+.input-error {
+    border: 1.5px solid #e53935 !important;
+    box-shadow: 0 0 0 2px #e5393522;
+}
+
+.register-success-section {
+    padding: 2rem;
+    text-align: center;
+}
+
+.register-success-section h2 {
+    margin-bottom: 1rem;
+}
+
+.register-success-section button {
+    margin-top: 2rem;
+}
+
+body.menu-open {
+    overflow: hidden;
+}
+
+/* PÁGINA DE CANDIDATOS - USAR ESTES ESTILOS PARA CANDIDATOS EM OUTRAS PÁGINAS  */
+.candidates-container {
+    padding: 0;
+    max-width: 100%;
+}
+
+.candidates-header {
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.candidates-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #243343;
+    margin: 0;
+    font-family: 'Inter', Arial, sans-serif;
+}
+
+.candidates-header .input-icon-container {
+    max-width: 400px;
+}
+
+.candidates-header .input-icon-container input {
+    padding: 0.75rem 1rem 0.75rem 45px;
+}
+
+.candidates-main {
+    min-height: 400px;
+}
+
+.deputies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.loading-state,
+.empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* ===== PAGINAÇÃO ===== */
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+.pagination-pages {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.pagination-btn {
+    min-width: 40px;
+    height: 40px;
+    padding: 0.5rem 1rem;
+    border: 1px solid #2F6A6E80;
+    background: #fff;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 1rem;
+    color: #243343;
+}
+
+.pagination-btn:hover:not(:disabled) {
+    background: #f7f7f7;
+    border-color: #243343;
+}
+
+.pagination-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.pagination-btn.active {
+    background: #243343;
+    color: #fff;
+    border-color: #243343;
+}
+
+/* ===== CARD DE DEPUTADO COM FRAME ===== */
+.deputado-card {
+    background: #fff;
+    border-radius: 15px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.5rem;
+    border: 1px solid #e0e0e0;
+    position: relative;
+    overflow: hidden;
+}
+
+.deputado-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #243343 0%, #2F6A6E 100%);
+}
+
+.deputado-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+/* Frame decorativo para a foto */
+.deputado-photo-frame {
+    position: relative;
+    padding: 8px;
+    background: linear-gradient(135deg, #243343 0%, #2F6A6E 50%, #243343 100%);
+    border-radius: 50%;
+    box-shadow: 0 4px 12px rgba(36, 51, 67, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.deputado-photo {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: #f7f7f7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 4px solid #fff;
+    position: relative;
+}
+
+.deputado-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.deputado-photo .material-symbols-outlined {
+    font-size: 70px;
+    color: #999;
+}
+
+.deputado-info {
+    width: 100%;
+}
+
+.deputado-name {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 0 0 0.5rem 0;
+    color: #243343;
+    font-family: 'Inter', Arial, sans-serif;
+}
+
+.deputado-details {
+    font-size: 0.95rem;
+    color: #666;
+    font-family: 'Inter', Arial, sans-serif;
+    font-weight: 500;
+}
+
+/*  PÁGINA DE CANDIDATOS MOBILE SEGUINDO FIGMA */
+
+@media (max-width: 768px) {
+    /* Layout horizontal no mobile */
+    .candidates-header .input-icon-container {
+        max-width: 100% !important;
+        width: 100% !important;
+    }
+    .candidates-header .input-icon-container input {
+        padding: 1rem 1rem 1rem 50px !important;
+        font-size: 1.1rem !important;
+        height: auto !important;
+    }
+    
+        .candidates-header .input-icon-container .icon-left {
+            font-size: 24px !important;
+            left: 18px !important;
+    }
+    .candidates-header .input-icon-container input[type="email"] {
+                padding-left: 55px !important;
+    }
+    /* Layout horizontal no mobile */
+    .deputado-card {
+        flex-direction: row;
+        align-items: center;
+        text-align: left;
+        gap: 1rem;
+        padding: 1rem;
+    }
+    
+    /* Foto menor e à esquerda */
+    .deputado-photo-frame {
+        flex-shrink: 0;
+        padding: 4px;
+    }
+    
+    .deputado-photo {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .deputado-photo .material-symbols-outlined {
+        font-size: 40px;
+    }
+    
+    /* Informações à direita */
+    .deputado-info {
+        flex: 1;
+        min-width: 0;
+    }
+    
+    .deputado-name {
+        font-size: 1rem;
+        margin-bottom: 0.25rem;
+    }
+    
+    .deputado-details {
+        font-size: 0.85rem;
+    }
+    
+    /* Grid também ajusta no mobile */
+    .deputies-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+}

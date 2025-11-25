@@ -1,0 +1,529 @@
+:root {
+  --breakpoint-tablet: 1024px;
+  --breakpoint-mobile: 768px;
+  --breakpoint-small: 480px;
+  --header-mobile-height: 56px;
+}
+
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: #f7f7f7;
+}
+
+.dashboard-main-area {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  min-height: 0;
+}
+
+.dashboard-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  justify-content: flex-start;
+  background: #fff;
+  box-sizing: border-box;
+  border-radius: 0;
+  margin-left: 0;
+  padding: 2.5rem 2.5rem 2rem 2.5rem;
+}
+
+.pagina-home-h2{
+   text-align: center;
+  font-family: 'Montserrat';
+  font-weight: 700;
+  color: rgba(36, 51, 67, 1);
+}
+.p{
+   margin: auto;
+   text-align: center;
+   font-family: 'Montserrat';
+   font-size:x-large;
+   font-style: italic;
+}
+
+.img-home-animada{
+    margin: auto;
+   text-align: center;
+    width: 280px; /* largura e embaixo altura */
+   height: 280x;
+}
+.card {
+    width: 270px;
+    margin: auto;
+    text-align: center;
+    font-family: Arial;
+}
+.h2{
+  padding-top: 20px;
+  width: 270px;
+  margin: auto;
+  text-align: center;
+  font-family: Arial;
+  color: rgba(0, 74, 143, 1);
+}
+
+.foto {
+  padding-top: 30px;
+  width: 250px;
+  height: 250px; 
+}
+.tamanhoLogo{
+  width: 28px; /* largura e embaixo altura */
+  height: 28px;
+  margin: 0 25px; /*espaço entre as logos */
+}
+
+.logos {
+    padding-top: 50px;
+    display: flex; 
+    flex-direction: row; /* Alinhando as logos na horizontaç */
+    justify-content: center; 
+    align-items: center; 
+}
+
+.alinhamento{
+  padding-top: 50px;
+  width: 300px;
+  margin: 0 auto;
+}
+
+.textos {
+    font-size: 16px;
+    color: rgba(36, 51, 67, 1);
+    text-align: left;
+}
+.btn-projetos-propostas {
+    width: 250px;
+    background: rgba(76, 129, 150, 0.25);
+    padding: 10px 20px;
+    border-radius: 20px;
+    color: rgb(26, 57, 161);
+    font-weight:700;
+    font-size: medium;
+    border: none;
+    cursor: pointer;
+    margin: 40px 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombreia um pouco o botao atras */
+}
+
+.btn-projetos-propostas:hover{
+   transform: translateY(-5px); /* levanta levemente */
+    box-shadow: 0 6px 18px  rgba(172, 7, 7, 0.18); /* brilho elegante */
+}
+
+.info-container {
+    padding: 20px; /* Padding de distancia do conteiner */
+    margin: 0 auto; /* Centraliza os textos ma tela*/
+    max-width: 900px; /* Limita a largura do conteudo pra nao ficar um texto todo longo quebrado */
+}
+.bio-content {
+    padding: 20px;
+    background: #f5f2f2; /* destaque a mais no fundo do bloco conheça + */
+    border-radius: 4px; /* Bordas do conheça mais */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Sombra leve para destacar o bloco */
+}
+
+.bio-title {
+    font-size: 1.8rem;
+    color:rgba(0, 74, 143, 1);
+    font-weight: bold;
+    margin-bottom: 25px; /* Espaço após o título */
+    font-weight: 700;
+}
+.bio-title-acao-saopaulo {
+    font-size: 1.8rem;
+    color: rgba(0, 74, 143, 1);
+    font-weight: 700;
+    margin-bottom: 25px;
+    text-align: center; /* Centraliza o texto */
+}
+.bio-title-animais{
+   font-size: 1.8rem;
+    color:rgba(0, 74, 143, 1);
+    font-weight: bold;
+    margin-bottom: 25px; /* Espaço após o título */
+    font-weight: 700;
+    margin-bottom: 25px;
+}
+
+.text {
+    font-size: 1.1rem; /* tamanho das letras para ler melhor*/
+    line-height: 1.7; /* espaçamento entre as linhas */
+    color: rgba(36, 51, 67, 1);
+    text-align: justify; 
+    margin-bottom: 1.0rem; /* Espaço entre parágrafos */
+}
+.retangulo-propostas {
+    background: rgba(0, 74, 143, 1);
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 700;
+    padding: 12px 24px;
+    border-radius: 8px; /* deixar retangular */
+    text-align: center;
+    max-width: 350px;
+    margin: 20px auto 40px auto;
+    transition: transform 0.10s ease, box-shadow 0.100s ease;
+}
+/* efeito de animação quando passo o mouse em qualquer elemento que tenha a classe .propostas-header:*/
+.retangulo-propostas:hover {
+    transform: translateY(-10px); /* levanta levemente */
+    box-shadow: 0 6px 18px  rgba(172, 7, 7, 0.18); /* brilho elegante */
+}
+.propostas-container {
+    display: flex;
+    align-items: center;      
+    justify-content: space-between;
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 0 150px;   /* espaço entre texto e foto */
+}
+
+.dados-candidato {
+    flex: 1;                
+}
+
+.h2-propostas {
+  padding-top: 20px;
+  margin: 0;
+  font-family: Arial;
+  color: rgba(0, 74, 143, 1);
+}
+
+.lista-projetos {
+    list-style: symbols(); 
+    margin-top: 10px;
+    font-size: 1.05rem;
+    color: rgba(36, 51, 67, 1);
+    line-height: 1.8;
+}
+
+.foto-circular {
+    width: 200px; 
+    height: 200px;
+    border-radius: 100%; /* Faz a imagem ficar circular */
+    object-fit: cover; /* Garante que a imagem preencha o círculo sem distorção */
+    box-shadow: 0 0 10px rgba(236, 232, 232, 0.1);
+}
+.espacamento-titulo-meio-ambiente {
+  padding-top: 50px;
+}
+.foto-meio-ambiente {
+    width: 85%;              
+    max-width: 1500px;     
+    height: auto;           
+    display: block;
+    margin: 10px auto;       
+    border-radius: 12px;    
+    object-fit: cover;       /* mantém qualidade da foto */
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    margin-bottom: 60px;     /*da um espaço do titulo direito dos animais */
+}
+.foto-animais{
+  padding-top: 100px;
+    width: 100%;
+    max-width: 900px; 
+    height: auto;
+    display: block;
+    margin: 0 auto; /* mantém centralizada */
+    margin-bottom: 40px;
+}
+/* Responsividade para telas menores*/
+@media (max-width: 768px) {
+    .pagina-home-h2 {
+        font-size: 1.4rem;
+        text-align: center;
+    }
+    .p {
+        font-size: 1rem;
+        padding: 0 10px;
+    }
+    .img-home-animada {
+        width: 200px;
+        height: 200px;
+    }
+    .card {
+        width: 90%;
+        margin: 20px auto;
+    }
+    .foto {
+        width: 200px;
+        height: 200px;
+    }
+    .tamanhoLogo {
+        width: 22px;
+        height: 22px;
+        margin: 0 15px;
+    }
+    .logos {
+        flex-wrap: wrap;
+        gap: 10px;
+        padding-top: 30px;
+    }
+    .info-container {
+        padding: 10px;
+        max-width: 100%;
+    }
+    .bio-content {
+        padding: 15px;
+    }
+    .bio-title {
+        font-size: 1.4rem;
+    }
+    .text {
+        font-size: 1rem;
+        line-height: 1.5;
+        text-align: justify;
+    }
+    .retangulo-propostas {
+        font-size: 1rem;
+        padding: 10px 16px;
+        max-width: 260px;
+    }
+ .propostas-container {
+        flex-direction: column; /* FORÇA O EMPILHAMENTO (Foto em cima, Texto embaixo) */
+        align-items: center;
+        padding: 0 20px; 
+        margin-top: 20px;
+    }
+    
+    .dados-candidato {
+        width: 100%; 
+        text-align: center; 
+        margin-bottom: 20px;
+    }
+    .lista-projetos {
+        text-align: left; 
+        max-width: 250px; 
+        margin: 20px auto 0 auto; 
+    }
+    .h2-propostas {
+        text-align: center; 
+        margin-bottom: 15px;
+    }
+    .foto-circular {
+        margin: 0 auto 20px auto;
+    }
+
+    .espacamento-titulo {
+        padding-top: 25px;
+    }
+        .foto-meio-ambiente {
+        width: 95%;          /* aproveita mais a tela no mobile */
+        max-width: 100%;
+        border-radius: 8px;
+        margin: 15px auto;
+    }
+}
+.dashboard-sidebar {
+  width: 15%;
+  min-height: 100vh;
+  background: #243343;
+  color: #fff;
+  padding: 20px 0 0 20px;
+  border-radius: 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  z-index: 1001;
+  transition: left 0.3s;
+}
+
+.dashboard-sidebar ul {
+  list-style: none;
+  margin: 0;
+  padding: 1rem 0;
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.dashboard-sidebar li {
+  margin-bottom: 0;
+}
+
+.dashboard-sidebar a {
+  color: #fff;
+  text-decoration: none;
+  background: none;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 10px 0 0 10px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.dashboard-sidebar a:hover,
+.dashboard-sidebar a.active {
+  color: #9F8C3D;
+}
+
+.sidebar-user-block {
+  margin-top: auto;
+  padding: 1.5rem 1rem 1.5rem 0;
+  border-top: 1px solid #2F6A6E40;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.dashboard-user-email {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #fff;
+  word-break: break-all;
+}
+
+.logout-btn {
+  color: #fff;
+  background: none;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  transition: color 0.2s;
+}
+.logout-btn:hover {
+  color: #9F8C3D;
+}
+
+.dashboard-user-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.dashboard-sidebar-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(36, 51, 67, 0.5);
+  z-index: 1000;
+}
+
+.dashboard-header-mobile {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .dashboard-header-mobile {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: var(--header-mobile-height);
+    background: #243343;
+    z-index: 1200;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    padding-left: 8px;
+  }
+  .sidebar-menu-toggle {
+    border: none !important;
+    background: none !important;
+    box-shadow: none !important;
+    outline: none;
+    color: #fff !important;
+    width: 48px;
+    height: 48px;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0 !important;
+    transition: none !important;
+  }
+  .sidebar-menu-toggle:focus,
+  .sidebar-menu-toggle:hover,
+  .sidebar-menu-toggle:active {
+    background: none !important;
+    box-shadow: none !important;
+    outline: none;
+  }
+}
+
+@media (max-width: 1024px) {
+  .dashboard-sidebar {
+    width: 22%;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .dashboard-content {
+    padding: 1.5rem 1rem 1rem 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-container,
+  .dashboard-main-area {
+    flex-direction: column;
+  }
+  .dashboard-sidebar {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 70%;
+    max-width: 320px;
+    height: 100vh;
+    min-height: 0;
+    box-shadow: 2px 0 8px rgba(0,0,0,0.08);
+    z-index: 1101;
+    padding-top: var(--header-mobile-height);
+    transition: left 0.3s;
+  }
+  .dashboard-sidebar.open {
+    left: 0;
+  }
+  .dashboard-sidebar ul {
+    gap: 0.5rem;
+    padding: 0.5rem 0;
+  }
+  .dashboard-sidebar a {
+    font-size: 0.95rem;
+    padding: 8px 8px 8px 8px;
+    gap: 0.4rem;
+  }
+  .sidebar-user-block {
+    padding: 0.7rem 0.5rem 0.7rem 0;
+    border-top: none;
+    margin-top: 0;
+    gap: 0.4rem;
+  }
+  .dashboard-user-actions {
+    gap: 0.7rem;
+  }
+  .dashboard-content {
+    padding: 1rem 0.5rem 1rem 0.5rem;
+  }
+  body.menu-open .dashboard-sidebar-overlay {
+    display: block;
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard-sidebar a {
+    font-size: 0.85rem;
+    padding: 6px 4px 6px 4px;
+  }
+  .dashboard-user-email {
+    font-size: 0.9rem;
+  }
+  .dashboard-content {
+    padding: 20px;
+  }
+}
