@@ -14,6 +14,8 @@ O **Radar Político** é um projeto desenvolvido por estudantes do **SENAC**. O 
 
 ### Jornada escolhida: Sofia
 
+![image](jornada_sofia.png)
+
 Para a prova de conceito deste projeto, retornamos ao documento de desenvolvimento e escolhemos a jornada de usuário da Sofia, uma jornalista que precisa de informações sobre um deputado específico.
 
 ## Sobre este repositório
@@ -23,6 +25,8 @@ Organizamos o repositório da melhor forma para atender às boas práticas do me
 ### Sobre o backend
 
 **Desenvolvedores:** Leandro Santos, Marcelo de Barros.
+
+![image](apischeme.png)
 
 O Backend é um reverse proxy da Câmara dos Deputados. Utilizamos o FastAPI para fazer o proxy e cache dos endpoints do site oficial da câmara. Ele:
 
