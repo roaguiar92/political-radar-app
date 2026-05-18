@@ -4,7 +4,7 @@
 
 ### Integrantes do Grupo:
 
-Leandro Santos, Lorena Amaral De Almeida, Marcelo de Barros, Nicoli Caetano Da Silva, Rafaela Gomes Dos Santos, Rosana Soares De Aguiar.
+Leandro Santos, Lorena Amaral De Almeida, Lucas Amorim Maia, Marcelo de Barros, Nicoli Caetano Da Silva, Rafaela Gomes Dos Santos, Rosana Soares De Aguiar.
 
 ### **O vídeo de apresentação deste projeto pode ser acessado em: https://youtu.be/rjIXZth7sR8**
 ### **Teste o radar político ao vivo em:**
@@ -118,7 +118,7 @@ Através de `profiles` poderemos expandir as features de usuário com novas mét
 
 ### Frontend
 
-**Desenvolvedores:** Lorena Amaral De Almeida, Marcelo de Barros, Nicoli Caetano Da Silva, Rafaela Gomes Dos Santos, Rosana Soares De Aguiar.
+**Desenvolvedores:** Lorena Amaral De Almeida, Lucas Amorim Maia, Marcelo de Barros, Nicoli Caetano Da Silva, Rafaela Gomes Dos Santos, Rosana Soares De Aguiar, 
 
 O frontend do Radar Político foi previamente idealizado em um design no Figma. Projetado primeiramente para mobile, também adicionamos responsividade para desktop.
 
