@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="860" height="560" viewBox="0 0 860 560" font-family="'Segoe UI', Arial, sans-serif">
+
+  <defs>
+    <marker id="arr" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#4B5563"/>
+    </marker>
+    <marker id="arr-green" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#16A34A"/>
+    </marker>
+    <marker id="arr-orange" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#EA580C"/>
+    </marker>
+    <marker id="arr-red" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#DC2626"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="860" height="560" fill="#F8F9FA" rx="12"/>
+
+  <!-- Title -->
+  <text x="430" y="42" text-anchor="middle" font-size="20" font-weight="700" fill="#1A1A2E">Fluxo de Cache — 3 Camadas</text>
+  <line x1="60" y1="55" x2="800" y2="55" stroke="#DEE2E6" stroke-width="1.5"/>
+
+  <!-- Subtitle -->
+  <text x="430" y="76" text-anchor="middle" font-size="11" fill="#6B7280">Endpoint: GET /api/v1/deputados/{id}</text>
+
+  <!-- ────────────────────────────────────────── -->
+  <!-- NODE 1: REQUEST -->
+  <rect x="330" y="95" width="200" height="52" rx="10" fill="#1D4ED8" stroke="#1E40AF" stroke-width="1.5"/>
+  <text x="430" y="116" text-anchor="middle" font-size="12" font-weight="700" fill="#FFFFFF">Requisição</text>
+  <text x="430" y="134" text-anchor="middle" font-size="10" fill="#BFDBFE">GET /deputados/{id}</text>
+
+  <!-- Arrow 1→2 -->
+  <line x1="430" y1="147" x2="430" y2="175" stroke="#4B5563" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- NODE 2: IN-MEMORY CHECK -->
+  <rect x="280" y="175" width="300" height="60" rx="10" fill="#FEF3C7" stroke="#D97706" stroke-width="1.8"/>
+  <text x="430" y="197" text-anchor="middle" font-size="11" font-weight="700" fill="#92400E">Camada 1 — In-Memory Cache</text>
+  <text x="430" y="214" text-anchor="middle" font-size="10" fill="#78350F">aggregates_cache (TTL: 2 horas)</text>
+  <text x="430" y="227" text-anchor="middle" font-size="10" fill="#78350F">lists_cache (TTL: 30 minutos)</text>
+
+  <!-- MISS branch (down) -->
+  <line x1="430" y1="235" x2="430" y2="258" stroke="#DC2626" stroke-width="2" marker-end="url(#arr-red)"/>
+  <rect x="392" y="242" width="76" height="18" rx="4" fill="#FEE2E2"/>
+  <text x="430" y="255" text-anchor="middle" font-size="9" font-weight="700" fill="#DC2626">MISS</text>
+
+  <!-- HIT branch (right) -->
+  <line x1="580" y1="205" x2="690" y2="205" stroke="#16A34A" stroke-width="2" marker-end="url(#arr-green)"/>
+  <rect x="600" y="193" width="40" height="18" rx="4" fill="#DCFCE7"/>
+  <text x="620" y="206" text-anchor="middle" font-size="9" font-weight="700" fill="#16A34A">HIT</text>
+  <rect x="690" y="183" width="130" height="44" rx="8" fill="#DCFCE7" stroke="#16A34A" stroke-width="1.4"/>
+  <text x="755" y="201" text-anchor="middle" font-size="10" font-weight="600" fill="#15803D">Resposta imediata</text>
+  <text x="755" y="217" text-anchor="middle" font-size="9" fill="#166534">sem I/O externo</text>
+
+  <!-- NODE 3: DB CHECK -->
+  <rect x="268" y="258" width="324" height="68" rx="10" fill="#F0F9FF" stroke="#0284C7" stroke-width="1.8"/>
+  <text x="430" y="280" text-anchor="middle" font-size="11" font-weight="700" fill="#0C4A6E">Camada 2 — Supabase DB</text>
+  <text x="430" y="297" text-anchor="middle" font-size="10" fill="#075985">table: deputados</text>
+  <text x="430" y="313" text-anchor="middle" font-size="10" fill="#075985">Verifica last_fetched_at (TTL: 24h)</text>
+
+  <!-- STALE/MISS branch (down) -->
+  <line x1="430" y1="326" x2="430" y2="352" stroke="#DC2626" stroke-width="2" marker-end="url(#arr-red)"/>
+  <rect x="370" y="334" width="120" height="18" rx="4" fill="#FEE2E2"/>
+  <text x="430" y="347" text-anchor="middle" font-size="9" font-weight="700" fill="#DC2626">MISS / STALE</text>
+
+  <!-- FRESH HIT branch (right) -->
+  <line x1="592" y1="292" x2="690" y2="292" stroke="#16A34A" stroke-width="2" marker-end="url(#arr-green)"/>
+  <rect x="600" y="280" width="40" height="18" rx="4" fill="#DCFCE7"/>
+  <text x="620" y="293" text-anchor="middle" font-size="9" font-weight="700" fill="#16A34A">HIT</text>
+  <rect x="690" y="270" width="130" height="44" rx="8" fill="#DCFCE7" stroke="#16A34A" stroke-width="1.4"/>
+  <text x="755" y="288" text-anchor="middle" font-size="10" font-weight="600" fill="#15803D">Dado do banco</text>
+  <text x="755" y="304" text-anchor="middle" font-size="9" fill="#166534">cache fresco (&lt; 24h)</text>
+
+  <!-- NODE 4: API CÂMARA -->
+  <rect x="268" y="352" width="324" height="68" rx="10" fill="#FFF7ED" stroke="#EA580C" stroke-width="1.8"/>
+  <text x="430" y="374" text-anchor="middle" font-size="11" font-weight="700" fill="#7C2D12">Camada 3 — API Câmara</text>
+  <text x="430" y="391" text-anchor="middle" font-size="10" fill="#9A3412">dadosabertos.camara.leg.br</text>
+  <text x="430" y="407" text-anchor="middle" font-size="10" fill="#9A3412">Retry: exponential backoff (max 2x)</text>
+
+  <!-- Arrow 4→5 -->
+  <line x1="430" y1="420" x2="430" y2="448" stroke="#4B5563" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- NODE 5: SAVE TO DB -->
+  <rect x="295" y="448" width="270" height="52" rx="10" fill="#F5F3FF" stroke="#7C3AED" stroke-width="1.8"/>
+  <text x="430" y="469" text-anchor="middle" font-size="11" font-weight="700" fill="#4C1D95">Salva no DB (UPSERT)</text>
+  <text x="430" y="486" text-anchor="middle" font-size="10" fill="#5B21B6">last_fetched_at = now()</text>
+
+  <!-- Arrow 5→6 -->
+  <line x1="430" y1="500" x2="430" y2="524" stroke="#4B5563" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- NODE 6: RESPONSE -->
+  <rect x="330" y="524" width="200" height="20" rx="8" fill="#1D4ED8"/>
+  <text x="430" y="538" text-anchor="middle" font-size="10" font-weight="700" fill="#FFFFFF">Retorna ao cliente</text>
+
+  <!-- ────────────────────────────────────────── -->
+  <!-- Vertical label on left -->
+  <rect x="28" y="175" width="16" height="345" rx="6" fill="#E5E7EB"/>
+  <text transform="translate(38,348) rotate(-90)" text-anchor="middle" font-size="10" font-weight="600" fill="#6B7280">CAMINHO DE MISS</text>
+
+  <!-- Legend bottom -->
+  <rect x="60" y="518" width="240" height="28" rx="6" fill="#F1F5F9" stroke="#CBD5E1" stroke-width="1"/>
+  <line x1="76" y1="532" x2="100" y2="532" stroke="#16A34A" stroke-width="2.5"/>
+  <text x="108" y="536" font-size="9" fill="#374151">Cache HIT (retorno rápido)</text>
+  <line x1="176" y1="532" x2="200" y2="532" stroke="#DC2626" stroke-width="2.5"/>
+  <text x="208" y="536" font-size="9" fill="#374151">Cache MISS</text>
+
+</svg>

@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="620" viewBox="0 0 900 620" font-family="'Segoe UI', Arial, sans-serif">
+
+  <!-- Background -->
+  <rect width="900" height="620" fill="#F8F9FA" rx="12"/>
+
+  <!-- Title -->
+  <text x="450" y="42" text-anchor="middle" font-size="20" font-weight="700" fill="#1A1A2E">Arquitetura Geral — Political Radar App</text>
+  <line x1="80" y1="55" x2="820" y2="55" stroke="#DEE2E6" stroke-width="1.5"/>
+
+  <!-- ── FRONTEND ── -->
+  <rect x="60" y="80" width="760" height="140" rx="10" fill="#EFF6FF" stroke="#3B82F6" stroke-width="1.8"/>
+  <rect x="60" y="80" width="760" height="32" rx="10" fill="#3B82F6"/>
+  <rect x="60" y="98" width="760" height="14" fill="#3B82F6"/>
+  <text x="440" y="101" text-anchor="middle" font-size="13" font-weight="700" fill="#FFFFFF">FRONTEND — Vanilla JS (SPA)</text>
+
+  <!-- Frontend boxes -->
+  <rect x="90" y="126" width="160" height="76" rx="8" fill="#FFFFFF" stroke="#93C5FD" stroke-width="1.4"/>
+  <text x="170" y="147" text-anchor="middle" font-size="11" font-weight="700" fill="#1D4ED8">auth-service.js</text>
+  <text x="170" y="164" text-anchor="middle" font-size="10" fill="#374151">POST /signup</text>
+  <text x="170" y="179" text-anchor="middle" font-size="10" fill="#374151">POST /login</text>
+
+  <rect x="275" y="126" width="200" height="76" rx="8" fill="#FFFFFF" stroke="#93C5FD" stroke-width="1.4"/>
+  <text x="375" y="147" text-anchor="middle" font-size="11" font-weight="700" fill="#1D4ED8">deputados-service.js</text>
+  <text x="375" y="163" text-anchor="middle" font-size="10" fill="#374151">GET /deputados</text>
+  <text x="375" y="177" text-anchor="middle" font-size="10" fill="#374151">GET /deputados/{id}/despesas</text>
+  <text x="375" y="191" text-anchor="middle" font-size="10" fill="#374151">GET /votacoes/{id}/votos</text>
+
+  <rect x="500" y="126" width="290" height="76" rx="8" fill="#FFFFFF" stroke="#93C5FD" stroke-width="1.4"/>
+  <text x="645" y="147" text-anchor="middle" font-size="11" font-weight="700" fill="#1D4ED8">Componentes / Páginas</text>
+  <text x="645" y="163" text-anchor="middle" font-size="10" fill="#374151">login · register · candidates-page</text>
+  <text x="645" y="177" text-anchor="middle" font-size="10" fill="#374151">about-candidate · monitoramento-gastos</text>
+  <text x="645" y="191" text-anchor="middle" font-size="10" fill="#374151">projetos-e-propostas · home</text>
+
+  <!-- Arrow Frontend → Backend -->
+  <line x1="440" y1="220" x2="440" y2="256" stroke="#6B7280" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="460" y="241" font-size="10" fill="#6B7280">HTTP / fetch()</text>
+
+  <!-- ── BACKEND ── -->
+  <rect x="60" y="256" width="760" height="180" rx="10" fill="#F0FDF4" stroke="#22C55E" stroke-width="1.8"/>
+  <rect x="60" y="256" width="760" height="32" rx="10" fill="#16A34A"/>
+  <rect x="60" y="274" width="760" height="14" fill="#16A34A"/>
+  <text x="440" y="277" text-anchor="middle" font-size="13" font-weight="700" fill="#FFFFFF">BACKEND — FastAPI (Python)</text>
+
+  <!-- Backend: Auth route -->
+  <rect x="90" y="302" width="175" height="116" rx="8" fill="#FFFFFF" stroke="#86EFAC" stroke-width="1.4"/>
+  <text x="178" y="322" text-anchor="middle" font-size="11" font-weight="700" fill="#15803D">Route: /api/v1/auth</text>
+  <line x1="108" y1="328" x2="246" y2="328" stroke="#86EFAC" stroke-width="1"/>
+  <text x="178" y="345" text-anchor="middle" font-size="10" fill="#374151">POST /signup</text>
+  <text x="178" y="360" text-anchor="middle" font-size="10" fill="#374151">POST /login</text>
+  <text x="178" y="382" text-anchor="middle" font-size="10" font-style="italic" fill="#6B7280">Delega ao</text>
+  <text x="178" y="396" text-anchor="middle" font-size="10" font-weight="600" fill="#0F766E">Supabase Auth</text>
+  <text x="178" y="410" text-anchor="middle" font-size="10" fill="#374151">→ JWT</text>
+
+  <!-- Backend: Deputados route -->
+  <rect x="288" y="302" width="200" height="116" rx="8" fill="#FFFFFF" stroke="#86EFAC" stroke-width="1.4"/>
+  <text x="388" y="322" text-anchor="middle" font-size="11" font-weight="700" fill="#15803D">Route: /api/v1</text>
+  <line x1="306" y1="328" x2="470" y2="328" stroke="#86EFAC" stroke-width="1"/>
+  <text x="388" y="345" text-anchor="middle" font-size="10" fill="#374151">GET /deputados</text>
+  <text x="388" y="360" text-anchor="middle" font-size="10" fill="#374151">GET /deputados/{id}</text>
+  <text x="388" y="375" text-anchor="middle" font-size="10" fill="#374151">GET /deputados/{id}/despesas</text>
+  <text x="388" y="390" text-anchor="middle" font-size="10" fill="#374151">GET /votacoes/{id}/votos</text>
+  <text x="388" y="405" text-anchor="middle" font-size="10" fill="#374151">GET /gastos/top</text>
+
+  <!-- Backend: Cache -->
+  <rect x="510" y="302" width="150" height="116" rx="8" fill="#FFFFFF" stroke="#86EFAC" stroke-width="1.4"/>
+  <text x="585" y="322" text-anchor="middle" font-size="11" font-weight="700" fill="#15803D">In-Memory Cache</text>
+  <line x1="528" y1="328" x2="642" y2="328" stroke="#86EFAC" stroke-width="1"/>
+  <text x="585" y="348" text-anchor="middle" font-size="10" fill="#374151">lists_cache</text>
+  <text x="585" y="363" text-anchor="middle" font-size="10" fill="#6B7280">TTL: 30 min</text>
+  <text x="585" y="383" text-anchor="middle" font-size="10" fill="#374151">aggregates_cache</text>
+  <text x="585" y="398" text-anchor="middle" font-size="10" fill="#6B7280">TTL: 2 horas</text>
+
+  <!-- Backend: Rate Limiter -->
+  <rect x="680" y="302" width="120" height="116" rx="8" fill="#FFFFFF" stroke="#86EFAC" stroke-width="1.4"/>
+  <text x="740" y="322" text-anchor="middle" font-size="11" font-weight="700" fill="#15803D">Rate Limiter</text>
+  <line x1="698" y1="328" x2="782" y2="328" stroke="#86EFAC" stroke-width="1"/>
+  <text x="740" y="348" text-anchor="middle" font-size="10" fill="#374151">slowapi</text>
+  <text x="740" y="368" text-anchor="middle" font-size="10" fill="#6B7280">100 req</text>
+  <text x="740" y="383" text-anchor="middle" font-size="10" fill="#6B7280">/ 15 min</text>
+
+  <!-- Arrows Backend → External -->
+  <line x1="220" y1="436" x2="220" y2="490" stroke="#6B7280" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="560" y1="436" x2="680" y2="490" stroke="#6B7280" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- ── SUPABASE ── -->
+  <rect x="60" y="490" width="340" height="110" rx="10" fill="#F0FDFA" stroke="#0D9488" stroke-width="1.8"/>
+  <rect x="60" y="490" width="340" height="30" rx="10" fill="#0D9488"/>
+  <rect x="60" y="507" width="340" height="13" fill="#0D9488"/>
+  <text x="230" y="508" text-anchor="middle" font-size="12" font-weight="700" fill="#FFFFFF">SUPABASE (Auth + Database)</text>
+
+  <text x="150" y="534" text-anchor="middle" font-size="10" font-weight="700" fill="#0F766E">auth.users</text>
+  <text x="150" y="549" text-anchor="middle" font-size="10" fill="#374151">id · email · password_hash</text>
+  <text x="150" y="563" text-anchor="middle" font-size="10" fill="#374151">→ emite JWT (access + refresh)</text>
+
+  <line x1="230" y1="528" x2="230" y2="585" stroke="#99F6E4" stroke-width="1"/>
+
+  <text x="320" y="534" text-anchor="middle" font-size="10" font-weight="700" fill="#0F766E">deputados (cache 24h)</text>
+  <text x="320" y="549" text-anchor="middle" font-size="10" fill="#374151">id · nome · sigla_partido</text>
+  <text x="320" y="563" text-anchor="middle" font-size="10" fill="#374151">sigla_uf · email · url_foto</text>
+  <text x="320" y="577" text-anchor="middle" font-size="10" fill="#374151">last_fetched_at</text>
+
+  <!-- ── API CÂMARA ── -->
+  <rect x="500" y="490" width="320" height="110" rx="10" fill="#FFF7ED" stroke="#EA580C" stroke-width="1.8"/>
+  <rect x="500" y="490" width="320" height="30" rx="10" fill="#EA580C"/>
+  <rect x="500" y="507" width="320" height="13" fill="#EA580C"/>
+  <text x="660" y="508" text-anchor="middle" font-size="12" font-weight="700" fill="#FFFFFF">API Câmara dos Deputados</text>
+  <text x="660" y="530" text-anchor="middle" font-size="10" fill="#6B7280">dadosabertos.camara.leg.br/api/v2</text>
+  <text x="660" y="549" text-anchor="middle" font-size="10" fill="#374151">GET /deputados</text>
+  <text x="660" y="563" text-anchor="middle" font-size="10" fill="#374151">GET /deputados/{id}</text>
+  <text x="660" y="577" text-anchor="middle" font-size="10" fill="#374151">GET /deputados/{id}/despesas</text>
+  <text x="660" y="591" text-anchor="middle" font-size="10" fill="#374151">GET /votacoes/{id}/votos</text>
+
+  <!-- Arrow marker -->
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#6B7280"/>
+    </marker>
+  </defs>
+
+</svg>
