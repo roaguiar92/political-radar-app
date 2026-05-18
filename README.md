@@ -24,18 +24,21 @@ Organizamos o repositório da melhor forma para atender às boas práticas do me
 
 ### Sobre o backend
 
+![Diagrama geral sobre a arquitetura do projeto.](image.png)
+
+
 **Desenvolvedores:** Leandro Santos, Marcelo de Barros.
 
 ![image](apischeme.png)
 
-O Backend é um reverse proxy da Câmara dos Deputados. Utilizamos o FastAPI para fazer o proxy e cache dos endpoints do site oficial da câmara. Ele:
+Criamos um reverse proxy para intermediar as chamadas à API e criar o nosso próprio controle de resposta aos erros e limitações. O intuito é melhorar a experiência de usuário ao criar um ambiente isolado com regras próprias.
 
 1. Faz requisições à API oficial da Câmara.
 2. Cacheia respostas para reduzir as chamadas no Supabase (com fallback para TTL cache).
 3. Fornece uma API REST para o frontend.
 4. Implementa uma nova camada de rate limiting e tratamento de erros.
 
-Para o projeto de backend, resolvemos criar um reverse proxy para intermediar as chamadas à API e criar o nosso próprio controle de resposta aos erros e limitações. O intuito é melhorar a experiência de usuário ao criar um ambiente isolado com regras próprias.
+
 
 ### Endpoints
 
@@ -56,7 +59,7 @@ Para o projeto de backend, resolvemos criar um reverse proxy para intermediar as
 
 **core/cache.py**: Cache em memória  
   - Cache de fallback com TTL cache (lists_cache, aggregates_cache)  
-  - **Mudamos a abordagem do cache. Esta parte da documentação será alterada.**  
+
 
 **services/camara_api.py**: Cliente HTTP (Classe CamaraAPIClient)  
   - Requisita a API da câmara com retry automático e backoff  
@@ -113,10 +116,6 @@ Nosso objetivo é também disponibilizar acompanhamento de perfil e de candidato
 
 Através de `profiles` poderemos expandir as features de usuário com novas métricas para análise de candidatos.
 
-#### Planos em andamento
-
-Atualmente o endpoint `/top_gastos` está com dados de mock; apenas os primeiros 100 candidatos são exibidos. Nosso plano é criar datasets anuais para conferência no nosso próprio banco. A coleta está em andamento, assimilando o ID dos deputados com uma tabela já tratada disponibilizada publicamente pelo Governo Brasileiro.
-
 ### Frontend
 
 **Desenvolvedores:** Lorena Amaral De Almeida, Marcelo de Barros, Nicoli Caetano Da Silva, Rafaela Gomes Dos Santos, Rosana Soares De Aguiar.
@@ -125,7 +124,7 @@ O frontend do Radar Político foi previamente idealizado em um design no Figma. 
 
 O frontend é desenvolvido em CSS e HTML, com componentes responsivos através de media queries. Para o desenvolvimento deste projeto, tentamos maximizar a reutilização de componentes, seguindo princípios de *clean code*, de *Robert C. Martin*.
 
-## Para executar este projeto localmente
+## Para executar o projeto localmente
 
 **Requisitos**
 
